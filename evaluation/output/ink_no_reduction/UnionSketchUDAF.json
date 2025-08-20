@@ -1,0 +1,1 @@
+{"status":"Success","normalizer":{"Ok":"λ(val_l: set[num], val_r: set[num]). union(val_l, val_r)"},"input_stats":{"has_tuple":false,"has_collection":true,"has_nested_collection":false,"has_conditional":false},"input_ast_size":8,"normalizer_ast_size":7,"elapsed":1.1030327}

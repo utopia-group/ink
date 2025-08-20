@@ -1,0 +1,13 @@
+program
+
+typedecl row struct {n0:int; n1:int; n2:int; n3:int; n4:int; n5:int; n6:int;};
+typedecl res struct {n0:int; n1:int; n2:int; n3:int; n4:int; n5:int; n6:int;};
+
+row *input;
+row x;
+res output = {n0=0, n1=0, n2=0, n3=0, n4=0, n5=0, n6=0};
+
+for (x in input){
+  output = {n0=x.n0, n1=x.n1, n2=x.n2, n3=x.n3, n4=x.n4, n5=x.n5, n6=x.n6};
+}
+return output;

@@ -1,0 +1,38 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/finance.TransactionSummaryAggregator.minic.
+ SUCCESS  Equation system: 
+// --- Lifted function ---
+_s1 = { n0 = false; n1 = 0; n2 = 0; n3 = 0; n4 = 0; n0_aux = true; }for(x in input){
+                                                                    _s1 = {
+                                                                    n0 = true;
+                                                                    n1 = x.n0;
+                                                                    n2 =
+                                                                    if x.n1
+                                                                    then
+                                                                    _s1.n2 + 1
+                                                                    else _s1.n2;
+                                                                    n3 =
+                                                                    if x.n1
+                                                                    then _s1.n3
+                                                                    else
+                                                                    _s1.n3 + 1;
+                                                                    n4 =
+                                                                    _s1.n4 +
+                                                                    x.n2;
+                                                                    n0_aux =
+                                                                    true;
+                                                                    }
+                                                                    }
+                                                                    return _s1;
+//--- Splitting predicate: false
+//--- Join function ---
+join($L3,$R3) = {
+  n0 = $L3.n0;
+  n1 = $R3.n1;
+  n2 = if $R3.n0_aux then $L3.n2 + $R3.n2 else $R3.n1;
+  n3 = if $L3.n0_aux then $R3.n3 + $L3.n3 else $L3.n1 + $L3.n1;
+  n4 = $L3.n4 + $R3.n4;
+  n0_aux = $L3.n0_aux;
+}
+// Synthesized in (predicate : 0.23 s) + (join : 2.32 s)
+
+ SUCCESS  Finished.

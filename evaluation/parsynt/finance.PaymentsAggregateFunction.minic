@@ -1,0 +1,53 @@
+
+program
+
+typedecl row struct {n0:int; n1:int;};
+typedecl res struct {n0:int; n1:int; n2:int; n3:int; n4:int; n5:int; n6:int;};
+
+row *input;
+row x;
+res output = {n0=0, n1=0, n2=0, n3=0, n4=0, n5=0, n6=0};
+
+
+int temp1;
+int temp2;
+int temp3;
+int temp4;
+int temp5;
+int temp6;
+
+for (x in input){
+  if (x.n0 == 0){
+    temp1 = 1;
+  } else {
+    temp1 = 0;
+  }
+  if (x.n0 == 1){
+    temp2 = 1;
+  } else {
+    temp2 = 0;
+  }
+  if (x.n0 == 2){
+    temp3 = x.n1;
+  } else {
+    temp3 = 0;
+  }
+  if (x.n0 == 0){
+    temp4 = x.n1;
+  } else {
+    temp4 = 0;
+  }
+  if (x.n0 == 1){
+    temp5 = x.n1;
+  } else {
+    temp5 = 0;
+  }
+  if (x.n0 == 2){
+    temp6 = x.n1;
+  } else {
+    temp6 = 0;
+  }
+  output = {n0=output.n0, n1=output.n1+temp1, n2=output.n2+temp2, n3=output.n3+temp3, n4=output.n4+temp4, n5=output.n5+temp5, n6=output.n6+temp6};
+}
+return output;
+

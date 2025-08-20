@@ -1,0 +1,24 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/finance.Prediction.minic.
+/tmp/nix-shell.p5GlJh/finance.Prediction_join_f_output12.rkt:24:19: x: unbound identifier
+  in: x
+  location...:
+   /tmp/nix-shell.p5GlJh/finance.Prediction_join_f_output12.rkt:24:19
+  context...:
+   /home/zwang/.local/share/racket/8.14/pkgs/rosette/rosette/base/form/module.rkt:16:0
+ SUCCESS  Equation system: 
+// --- Lifted function ---
+_s1 = { output1 = 0; }for(x in input){
+                        _s1 = {
+                          output1 =
+                          if x.n1 > 0 then _s1.output1 + x.n0 else
+                            _s1.output1 - x.n0;
+                        }
+                        }
+                        return _s1;
+//--- Splitting predicate: true
+//--- Join function ---
+join($L1,$R1) = { ?? = (empty);
+}
+// Synthesized in (predicate : 0.13 s) + (join : 2.48 s)
+
+ SUCCESS  Finished.

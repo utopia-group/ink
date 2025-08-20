@@ -1,0 +1,155 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "buffer",
+    "param_type": {
+      "type": "Num"
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "input",
+      "param_type": {
+        "type": "Tuple",
+        "elms": [
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          }
+        ]
+      },
+      "body": {
+        "type": "Let",
+        "name": "westernState",
+        "expr": {
+          "type": "BinOp",
+          "op": "&&",
+          "left": {
+            "type": "UnaryOp",
+            "op": "not",
+            "expr": {
+              "type": "BinOp",
+              "op": "<",
+              "left": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "input"
+                },
+                "index": 1
+              },
+              "right": {
+                "type": "Num",
+                "value": 10
+              }
+            }
+          },
+          "right": {
+            "type": "UnaryOp",
+            "op": "not",
+            "expr": {
+              "type": "BinOp",
+              "op": ">",
+              "left": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "input"
+                },
+                "index": 1
+              },
+              "right": {
+                "type": "Num",
+                "value": 19
+              }
+            }
+          }
+        },
+        "body": {
+          "type": "Let",
+          "name": "sales",
+          "expr": {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "input"
+            },
+            "index": 0
+          },
+          "body": {
+            "type": "Ite",
+            "cond": {
+              "type": "BinOp",
+              "op": "||",
+              "left": {
+                "type": "BinOp",
+                "op": "&&",
+                "left": {
+                  "type": "Var",
+                  "name": "westernState"
+                },
+                "right": {
+                  "type": "BinOp",
+                  "op": ">",
+                  "left": {
+                    "type": "Var",
+                    "name": "sales"
+                  },
+                  "right": {
+                    "type": "Num",
+                    "value": 1000
+                  }
+                }
+              },
+              "right": {
+                "type": "BinOp",
+                "op": "&&",
+                "left": {
+                  "type": "UnaryOp",
+                  "op": "not",
+                  "expr": {
+                    "type": "Var",
+                    "name": "westernState"
+                  }
+                },
+                "right": {
+                  "type": "BinOp",
+                  "op": ">",
+                  "left": {
+                    "type": "Var",
+                    "name": "sales"
+                  },
+                  "right": {
+                    "type": "Num",
+                    "value": 400
+                  }
+                }
+              }
+            },
+            "then_expr": {
+              "type": "BinOp",
+              "op": "+",
+              "left": {
+                "type": "Var",
+                "name": "buffer"
+              },
+              "right": {
+                "type": "Var",
+                "name": "sales"
+              }
+            },
+            "else_expr": {
+              "type": "Var",
+              "name": "buffer"
+            }
+          }
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Num",
+    "value": 0
+  }
+}

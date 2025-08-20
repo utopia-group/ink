@@ -1,0 +1,19 @@
+
+program
+
+
+
+int *input;
+int x;
+int output = 0;
+int max_point_per_order = 100;
+
+for (x in input){
+  if(x > max_point_per_order) {
+    output = output + x;
+  } else {
+    output = output + max_point_per_order;
+  }
+}
+return output;
+

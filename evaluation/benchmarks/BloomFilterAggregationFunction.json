@@ -1,0 +1,105 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "acc",
+    "param_type": {
+      "type": "Tuple",
+      "elms": [
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Str"
+        },
+        {
+          "type": "Set",
+          "elm": {
+            "type": "Num"
+          }
+        }
+      ]
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "value",
+      "param_type": {
+        "type": "Tuple",
+        "elms": [
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Str"
+          },
+          {
+            "type": "Num"
+          }
+        ]
+      },
+      "body": {
+        "type": "Tuple",
+        "values": [
+          {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "value"
+            },
+            "index": 0
+          },
+          {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "value"
+            },
+            "index": 1
+          },
+          {
+            "type": "App",
+            "func": {
+              "type": "App",
+              "func": {
+                "type": "Var",
+                "name": "set_add"
+              },
+              "arg": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "value"
+                },
+                "index": 2
+              }
+            },
+            "arg": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "acc"
+              },
+              "index": 2
+            }
+          }
+        ]
+      }
+    }
+  },
+  "init": {
+    "type": "Tuple",
+    "values": [
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Str",
+        "value": ""
+      },
+      {
+        "type": "Var",
+        "name": "empty_set"
+      }
+    ]
+  }
+}

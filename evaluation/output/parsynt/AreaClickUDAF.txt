@@ -1,0 +1,10 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/AreaClickUDAF.minic.
+Fatal error: exception Failure("Unexpected missing list compoenent in struct.")
+Raised at Stdlib.failwith in file "stdlib.ml", line 29, characters 17-33
+Called from Fmt.failwith in file "src/fmt.ml" (inlined), line 25, characters 19-36
+Called from Recursion__SelfFoldSinglePass.dissect.lift_inner.struct_case in file "src/recursion/SelfFoldSinglePass.ml", line 242, characters 22-78
+Called from Recursion__SelfFoldSinglePass.single_pass_transform in file "src/recursion/SelfFoldSinglePass.ml", line 469, characters 34-50
+Called from Recursion__SelfFoldSinglePass.to_single_pass in file "src/recursion/SelfFoldSinglePass.ml", line 542, characters 17-75
+Called from Base__List.map in file "src/list.ml", line 433, characters 15-18
+Called from Dune__exe__Parsynt.main in file "bin/Parsynt.ml", line 132, characters 6-84
+Called from Dune__exe__Parsynt in file "bin/Parsynt.ml", line 138, characters 0-7

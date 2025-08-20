@@ -1,0 +1,1 @@
+{"status":"Success","normalizer":{"Ok":"λ(s1: num, s2: num). (s1 + s2)"},"input_stats":{"has_tuple":false,"has_collection":false,"has_nested_collection":false,"has_conditional":true},"input_ast_size":11,"normalizer_ast_size":5,"elapsed":0.3006392}

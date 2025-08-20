@@ -1,0 +1,239 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/counter.minic.
+ SUCCESS  Single pass translation: solution found (1.552 s).
+ SUCCESS  ===== Budget: (0, 2, 2) ====
+ SUCCESS  Predicate found in 1.31 s.
+ SUCCESS  Divide function found in 1.34 s.
+ SUCCESS  Join found in 1.12 s.
+ SUCCESS  Solution in counter_0-2-2_0_soln.txt
+ SUCCESS  ===== Budget: (1, 2, 2) ====
+ SUCCESS  Predicate found in 0.66 s.
+ SUCCESS  Divide function found in 0.75 s.
+ SUCCESS  Join found in 1.68 s.
+ SUCCESS  Solution in counter_1-2-2_1_soln.txt
+ SUCCESS  ===== Budget: (2, 2, 2) ====
+ SUCCESS  Predicate found in 0.58 s.
+ SUCCESS  Solution in counter_2-2-2_2_soln.txt
+ SUCCESS  ===== Budget: (0, 2, 3) ====
+ SUCCESS  Predicate found in 4.06 s.
+ SUCCESS  ===== Budget: (0, 3, 3) ====
+ SUCCESS  Predicate found in 4.61 s.
+ SUCCESS  Divide function found in 2.46 s.
+ SUCCESS  Join found in 2.20 s.
+ SUCCESS  Solution in counter_0-3-3_3_soln.txt
+ SUCCESS  ===== Budget: (1, 2, 3) ====
+ SUCCESS  Predicate found in 4.25 s.
+ SUCCESS  Divide function found in 2.23 s.
+ SUCCESS  Join found in 1.09 s.
+ SUCCESS  Solution in counter_1-2-3_4_soln.txt
+ SUCCESS  ===== Budget: (1, 3, 3) ====
+ SUCCESS  Predicate found in 4.33 s.
+ SUCCESS  Divide function found in 2.13 s.
+ SUCCESS  Join found in 2.32 s.
+ SUCCESS  Solution in counter_1-3-3_5_soln.txt
+ SUCCESS  ===== Budget: (2, 2, 3) ====
+ SUCCESS  Predicate found in 3.30 s.
+/tmp/nix-shell.p5GlJh/counter_join_sketch_2_2_3_59.rkt:37:0: read-syntax: expected a `)` to close `(`
+  possible cause: indentation suggests a missing `)` before line 39
+  context...:
+   /nix/store/z4bh5md02ah6vc7mmw2i0skkfdgjq7dq-racket-8.14/share/racket/collects/syntax/module-reader.rkt:214:17: body
+   /nix/store/z4bh5md02ah6vc7mmw2i0skkfdgjq7dq-racket-8.14/share/racket/collects/syntax/module-reader.rkt:211:2: wrap-internal
+   .../syntax/module-reader.rkt:76:9: wrap-internal/wrapper
+ SUCCESS  ===== Budget: (2, 3, 3) ====
+ SUCCESS  Predicate found in 3.03 s.
+/tmp/nix-shell.p5GlJh/counter_join_sketch_2_3_3_61.rkt:37:0: read-syntax: expected a `)` to close `(`
+  possible cause: indentation suggests a missing `)` before line 39
+  context...:
+   /nix/store/z4bh5md02ah6vc7mmw2i0skkfdgjq7dq-racket-8.14/share/racket/collects/syntax/module-reader.rkt:214:17: body
+   /nix/store/z4bh5md02ah6vc7mmw2i0skkfdgjq7dq-racket-8.14/share/racket/collects/syntax/module-reader.rkt:211:2: wrap-internal
+   .../syntax/module-reader.rkt:76:9: wrap-internal/wrapper
+ SUCCESS  Solution(/home/zwang/research/ink/evaluation/parsynt/counter.minic):
+Single pass function:
+‣ f1 input = List.fold ~f:⊕ ~init:{l = []} input 
+‣ s ⊕ a =
+      (post (List.fold ~f:(λ e s.(a, s) ⊗ e)) ~init:(pre s a) s.l) a))
+where
+‣ (x, x2) ⊗ y =
+      {tmp = if y.n0 = x then x2.tmp ++ [{n0 = y.n0; n1 = y.n1 + 1}] else
+               x2.tmp ++ [{n0 = y.n0; n1 = y.n1}];
+       to_add = if y.n0 = x then false else x2.to_add})
+‣ post x2 x =
+      {l = if x2.to_add then x2.tmp ++ [{n0 = x; n1 = 1}] else x2.tmp}
+‣ pre output11 x = 
+      {tmp = []; to_add = true}
+
+Divide function (1.34s):
+divide(X) =
+let pivot = List.fold ~f:(fun (x7 pivot) -> pivot) ~init:(hd X) X in
+  partition (fun (x7) -> x7 < pivot) X
+
+Join (1.12 s): join(s0, s1) = {l = s0.l ++ s1.l}
+
+ SUCCESS  Solution(/home/zwang/research/ink/evaluation/parsynt/counter.minic):
+Single pass function:
+‣ f11 input = List.fold ~f:⊕ ~init:{l = []; aux = -32767} input 
+‣ s ⊕ a =
+      (post (List.fold ~f:(λ e s.(a, s) ⊗ e)) ~init:(pre s a) s.l) a))
+where
+‣ (x, _s) ⊗ y =
+      {tmp = if y.n0 = x then _s.tmp ++ [{n0 = y.n0; n1 = y.n1 + 1}] else
+               _s.tmp ++ [{n0 = y.n0; n1 = y.n1}];
+       to_add = if y.n0 = x then false else _s.to_add; aux = _s.aux})
+‣ post _s2 x =
+      {l = if _s2.to_add then _s2.tmp ++ [{n0 = x; n1 = 1}] else _s2.tmp;
+       aux = max (x, _s2.aux)}
+‣ pre _s1 x = 
+      {tmp = []; to_add = true; aux = _s1.aux}
+
+Divide function (0.75s):
+divide(X1) =
+let pivot2 = List.fold ~f:(fun (x11 pivot2) -> pivot2) ~init:(hd X1) X1 in
+  partition (fun (x11) -> x11 > pivot2) X1
+
+Join (1.68 s):
+join(s01, s11) =
+{l = List.fold
+     ~f:(fun (elt accum) -> if elt.n0 < s01.aux then accum ++ [elt] else accum)
+       ~init:(s01.l) s11.l;
+ aux = max (s11.aux, s01.aux)}
+
+ SUCCESS  Solution(/home/zwang/research/ink/evaluation/parsynt/counter.minic):
+Single pass function:
+‣ f1 input = List.fold ~f:⊕ ~init:{l = []} input 
+‣ s ⊕ a =
+      (post (List.fold ~f:(λ e s.(a, s) ⊗ e)) ~init:(pre s a) s.l) a))
+where
+‣ (x, x2) ⊗ y =
+      {tmp = if y.n0 = x then x2.tmp ++ [{n0 = y.n0; n1 = y.n1 + 1}] else
+               x2.tmp ++ [{n0 = y.n0; n1 = y.n1}];
+       to_add = if y.n0 = x then false else x2.to_add})
+‣ post x2 x =
+      {l = if x2.to_add then x2.tmp ++ [{n0 = x; n1 = 1}] else x2.tmp}
+‣ pre output11 x = 
+      {tmp = []; to_add = true}
+
+Join (0.96 s):
+join(s02, s12) =
+List.fold
+~f:(fun (a output11) ->
+    (fun (x2 a) ->
+     {l = if x2.to_add then x2.tmp ++ [{n0 = a.n0; n1 = a.n1}] else x2.tmp})
+      List.fold
+      ~f:(fun (y x2) ->
+          {tmp = if y.n0 = a.n0 then x2.tmp ++ [{n0 = y.n0; n1 = y.n1 + a.n1}]
+                   else x2.tmp ++ [{n0 = y.n0; n1 = y.n1}];
+           to_add = if y.n0 = a.n0 then false else x2.to_add})
+        ~init:((fun (output11 a) -> {tmp = []; to_add = true}) output11 a)
+        output11.l
+      a) ~init:(s02) s12.l
+
+ SUCCESS  Solution(/home/zwang/research/ink/evaluation/parsynt/counter.minic):
+Single pass function:
+‣ f1 input = List.fold ~f:⊕ ~init:{l = []} input 
+‣ s ⊕ a =
+      (post (List.fold ~f:(λ e s.(a, s) ⊗ e)) ~init:(pre s a) s.l) a))
+where
+‣ (x, x2) ⊗ y =
+      {tmp = if y.n0 = x then x2.tmp ++ [{n0 = y.n0; n1 = y.n1 + 1}] else
+               x2.tmp ++ [{n0 = y.n0; n1 = y.n1}];
+       to_add = if y.n0 = x then false else x2.to_add})
+‣ post x2 x =
+      {l = if x2.to_add then x2.tmp ++ [{n0 = x; n1 = 1}] else x2.tmp}
+‣ pre output11 x = 
+      {tmp = []; to_add = true}
+
+Divide function (2.46s):
+divide(X3) =
+let pivot6 = List.fold ~f:(fun (x18 pivot6) -> x18) ~init:(hd X3) X3 in
+  let pivot7 =
+    List.fold
+    ~f:(fun (x18 pivot7) -> if x18 < pivot6 then x18 else pivot7) ~init:(
+      hd X3) X3 in
+    let x53, x52 =
+      (partition (fun (x18) -> x18 >= pivot6) X3)
+      in
+      let x52, x51 =
+        (partition (fun (x18) -> x18 < pivot7) x52)
+        in
+        (x53, x52, x51)
+
+Join (2.20 s): join(s05, s15, s2)= {l = (s05.l ++ s15.l) ++ s2.l}
+
+ SUCCESS  Solution(/home/zwang/research/ink/evaluation/parsynt/counter.minic):
+Single pass function:
+‣ f13 input = List.fold ~f:⊕ ~init:{l = []; aux1 = -32767} input 
+‣ s ⊕ a =
+      (post (List.fold ~f:(λ e s.(a, s) ⊗ e)) ~init:(pre s a) s.l) a))
+where
+‣ (x, _s6) ⊗ y =
+      {tmp = if y.n0 = x then _s6.tmp ++ [{n0 = y.n0; n1 = y.n1 + 1}] else
+               _s6.tmp ++ [{n0 = y.n0; n1 = y.n1}];
+       to_add = if y.n0 = x then false else _s6.to_add; aux1 = _s6.aux1})
+‣ post _s8 x =
+      {l = if _s8.to_add then _s8.tmp ++ [{n0 = x; n1 = 1}] else _s8.tmp;
+       aux1 = max (x, _s8.aux1)}
+‣ pre _s7 x = 
+      {tmp = []; to_add = true; aux1 = _s7.aux1}
+
+Divide function (2.23s):
+divide(X4) =
+let pivot8 = List.fold ~f:(fun (x29 pivot8) -> pivot8) ~init:(hd X4) X4 in
+  let pivot9 =
+    List.fold
+    ~f:(fun (x29 pivot9) -> if x29 < pivot8 then x29 else pivot9) ~init:(
+      hd X4) X4 in
+    let x56, x55 =
+      (partition (fun (x29) -> x29 > pivot9) X4)
+      in
+      let x55, x54 =
+        (partition (fun (x29) -> x29 > pivot8) x55)
+        in
+        (x56, x55, x54)
+
+Join (1.09 s):
+join(s06, s16) =
+{l = List.fold
+     ~f:(fun (elt1 accum1) ->
+         if elt1.n1 >= s16.aux1 then accum1 ++ [elt1] else accum1)
+       ~init:(s06.l) s16.l;
+ aux1 = max (s16.aux1, s06.aux1)}
+
+ SUCCESS  Solution(/home/zwang/research/ink/evaluation/parsynt/counter.minic):
+Single pass function:
+‣ f14 input = List.fold ~f:⊕ ~init:{l = []; aux2 = -32767} input 
+‣ s ⊕ a =
+      (post (List.fold ~f:(λ e s.(a, s) ⊗ e)) ~init:(pre s a) s.l) a))
+where
+‣ (x, _s9) ⊗ y =
+      {tmp = if y.n0 = x then _s9.tmp ++ [{n0 = y.n0; n1 = y.n1 + 1}] else
+               _s9.tmp ++ [{n0 = y.n0; n1 = y.n1}];
+       to_add = if y.n0 = x then false else _s9.to_add; aux2 = _s9.aux2})
+‣ post _s11 x =
+      {l = if _s11.to_add then _s11.tmp ++ [{n0 = x; n1 = 1}] else _s11.tmp;
+       aux2 = max (x, _s11.aux2)}
+‣ pre _s10 x = 
+      {tmp = []; to_add = true; aux2 = _s10.aux2}
+
+Divide function (2.13s):
+divide(X5) =
+let pivot10 = List.fold ~f:(fun (x40 pivot10) -> pivot10) ~init:(hd X5) X5 in
+  let pivot11 =
+    List.fold
+    ~f:(fun (x40 pivot11) -> if x40 < pivot10 then x40 else pivot11)
+      ~init:(hd X5) X5 in
+    let x59, x58 =
+      (partition (fun (x40) -> x40 > pivot11) X5)
+      in
+      let x58, x57 =
+        (partition (fun (x40) -> x40 > pivot10) x58)
+        in
+        (x59, x58, x57)
+
+Join (2.32 s):
+join(s07, s17, s21)=
+{l = List.fold
+     ~f:(fun (elt2 accum2) ->
+         if elt2.n1 >= s21.aux2 then accum2 ++ [elt2] else accum2)
+       ~init:(s07.l) (s17.l ++ s21.l);
+ aux2 = min ((min ((min (0, 0)), 0)), 0)}
+
+ SUCCESS  Finished.

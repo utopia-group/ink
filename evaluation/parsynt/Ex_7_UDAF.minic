@@ -1,0 +1,14 @@
+program
+
+int * a;
+int n;
+
+int out = 0;
+int x;
+
+for(x in a) {
+  if (x > out) {
+    out = x;
+  }
+}
+return out;

@@ -1,0 +1,25 @@
+
+program
+
+typedecl row struct {n0:int; n1:int;};
+typedecl res struct {n0:int; n1:int;};
+
+row *input;
+row x;
+row y;
+res *output = [];
+res *temp;
+
+for (x in input){
+  temp = [];
+  for (y in output){
+    if (y.n0 == x.n0){
+      temp += [x];
+    } else {
+      temp += [y];
+    }
+  }
+  output = temp;
+}
+return output;
+

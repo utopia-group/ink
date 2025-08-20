@@ -1,0 +1,144 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "map_output",
+    "param_type": {
+      "type": "Tuple",
+      "elms": [
+        {
+          "type": "List",
+          "elm": {
+            "type": "Num"
+          }
+        },
+        {
+          "type": "List",
+          "elm": {
+            "type": "Num"
+          }
+        },
+        {
+          "type": "List",
+          "elm": {
+            "type": "Num"
+          }
+        }
+      ]
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "x",
+      "param_type": {
+        "type": "Tuple",
+        "elms": [
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          }
+        ]
+      },
+      "body": {
+        "type": "Tuple",
+        "values": [
+          {
+            "type": "BinOp",
+            "op": "++",
+            "left": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "map_output"
+              },
+              "index": 0
+            },
+            "right": {
+              "type": "Cons",
+              "head": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "x"
+                },
+                "index": 0
+              },
+              "tail": {
+                "type": "Nil"
+              }
+            }
+          },
+          {
+            "type": "BinOp",
+            "op": "++",
+            "left": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "map_output"
+              },
+              "index": 1
+            },
+            "right": {
+              "type": "Cons",
+              "head": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "x"
+                },
+                "index": 1
+              },
+              "tail": {
+                "type": "Nil"
+              }
+            }
+          },
+          {
+            "type": "BinOp",
+            "op": "++",
+            "left": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "map_output"
+              },
+              "index": 2
+            },
+            "right": {
+              "type": "Cons",
+              "head": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "x"
+                },
+                "index": 2
+              },
+              "tail": {
+                "type": "Nil"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "init": {
+    "type": "Tuple",
+    "values": [
+      {
+        "type": "Nil"
+      },
+      {
+        "type": "Nil"
+      },
+      {
+        "type": "Nil"
+      }
+    ]
+  }
+}

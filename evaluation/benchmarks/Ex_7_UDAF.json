@@ -1,0 +1,57 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "buffer",
+    "param_type": {
+      "type": "Str"
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "input",
+      "param_type": {
+        "type": "Str"
+      },
+      "body": {
+        "type": "Ite",
+        "cond": {
+          "type": "BinOp",
+          "op": ">",
+          "left": {
+            "type": "App",
+            "func": {
+              "type": "Var",
+              "name": "length"
+            },
+            "arg": {
+              "type": "Var",
+              "name": "input"
+            }
+          },
+          "right": {
+            "type": "App",
+            "func": {
+              "type": "Var",
+              "name": "length"
+            },
+            "arg": {
+              "type": "Var",
+              "name": "buffer"
+            }
+          }
+        },
+        "then_expr": {
+          "type": "Var",
+          "name": "input"
+        },
+        "else_expr": {
+          "type": "Var",
+          "name": "buffer"
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Str",
+    "value": ""
+  }
+}

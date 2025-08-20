@@ -1,0 +1,21 @@
+
+program
+
+typedecl res struct {n0:int; n1:int; n2:boolean;};
+
+int *input;
+int x;
+res output = {n0=0, n1=0, n2=false};
+
+
+for (x in input){
+  if ((x == 0) || output.n2) {
+    output = {n0=output.n0, n1=output.n1, n2=true};
+  }
+  else {
+    // parsynt might not be able to handle division; use product instead
+    output = {n0=output.n0+1, n1=output.n0+(x*2), n2=((x == 0) || output.n2)};
+  }
+}
+return output;
+

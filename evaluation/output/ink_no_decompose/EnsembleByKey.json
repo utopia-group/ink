@@ -1,0 +1,1 @@
+{"status":"Success","normalizer":{"Ok":"λ(s1: (list[num], num), s2: (list[num], num)). (map(λ(s1: num, s2: num). (s1 + s2), outer_join(xs._0, ys._0)), (s1._1 + s2._1))"},"input_stats":{"has_tuple":true,"has_collection":true,"has_nested_collection":false,"has_conditional":false},"input_ast_size":45,"normalizer_ast_size":23,"elapsed":4.540705}

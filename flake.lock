@@ -1,0 +1,49 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1747676747,
+        "narHash": "sha256-LXkWBVqilgx7Pohwqu/ABxDVw+Cmi5/Mj2S2mpUH0Fw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "72841a4a8761d1aed92ef6169a636872c986c76d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-24.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "progsyn": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1748651079,
+        "narHash": "sha256-zZIh1lbz2VvX4g2JSwOB0wgZUuGPPchW31Y/68dlF/U=",
+        "owner": "mistzzt",
+        "repo": "program-synthesis-nur",
+        "rev": "a51fe91af2a0c6e92ca1ceeca524b7c0c13abb8e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mistzzt",
+        "repo": "program-synthesis-nur",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": [
+          "progsyn",
+          "nixpkgs"
+        ],
+        "progsyn": "progsyn"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

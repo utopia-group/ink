@@ -1,0 +1,20 @@
+program
+
+typedecl row struct {n0:int; n1:int;};
+
+row *input;
+row x;
+int output = 0;
+
+boolean westernState;
+int sales;
+
+for (x in input){
+  westernState = (x.n1 >= 10) && (x.n1 <= 19);
+  sales = x.n0;
+  
+  if((westernState && sales > 1000) || (!westernState && sales > 400)) {
+    output = output + sales;
+  }
+}
+return output;

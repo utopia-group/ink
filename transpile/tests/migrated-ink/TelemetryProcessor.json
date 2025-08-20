@@ -1,0 +1,192 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "accumulator",
+    "param_type": {
+      "type": "Tuple",
+      "elms": [
+        {
+          "type": "Str"
+        },
+        {
+          "type": "Str"
+        },
+        {
+          "type": "Str"
+        },
+        {
+          "type": "Str"
+        },
+        {
+          "type": "Str"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        }
+      ]
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "value",
+      "param_type": {
+        "type": "Tuple",
+        "elms": [
+          {
+            "type": "Str"
+          },
+          {
+            "type": "Str"
+          },
+          {
+            "type": "Str"
+          },
+          {
+            "type": "Str"
+          },
+          {
+            "type": "Str"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          }
+        ]
+      },
+      "body": {
+        "type": "Tuple",
+        "values": [
+          {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "value"
+            },
+            "index": 0
+          },
+          {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "value"
+            },
+            "index": 1
+          },
+          {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "value"
+            },
+            "index": 2
+          },
+          {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "value"
+            },
+            "index": 3
+          },
+          {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "value"
+            },
+            "index": 4
+          },
+          {
+            "type": "App",
+            "func": {
+              "type": "App",
+              "func": {
+                "type": "Var",
+                "name": "max"
+              },
+              "arg": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "value"
+                },
+                "index": 5
+              }
+            },
+            "arg": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "accumulator"
+              },
+              "index": 5
+            }
+          },
+          {
+            "type": "App",
+            "func": {
+              "type": "App",
+              "func": {
+                "type": "Var",
+                "name": "max"
+              },
+              "arg": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "value"
+                },
+                "index": 6
+              }
+            },
+            "arg": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "accumulator"
+              },
+              "index": 6
+            }
+          }
+        ]
+      }
+    }
+  },
+  "init": {
+    "type": "Tuple",
+    "values": [
+      {
+        "type": "Str",
+        "value": ""
+      },
+      {
+        "type": "Str",
+        "value": ""
+      },
+      {
+        "type": "Str",
+        "value": ""
+      },
+      {
+        "type": "Str",
+        "value": ""
+      },
+      {
+        "type": "Str",
+        "value": ""
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      }
+    ]
+  }
+}

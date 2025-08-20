@@ -1,0 +1,117 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/TermFrequencyAccumulator.minic.
+ SUCCESS  Single pass translation: solution found (1.583 s).
+ SUCCESS  ===== Budget: (0, 2, 2) ====
+ SUCCESS  Predicate found in 1.13 s.
+ SUCCESS  Divide function found in 2.00 s.
+ SUCCESS  Join found in 2.09 s.
+ SUCCESS  Solution in TermFrequencyAccumulator_0-2-2_0_soln.txt
+ SUCCESS  ===== Budget: (1, 2, 2) ====
+ SUCCESS  Predicate found in 0.60 s.
+ SUCCESS  Divide function found in 0.96 s.
+ SUCCESS  Join found in 2.07 s.
+ SUCCESS  Solution in TermFrequencyAccumulator_1-2-2_1_soln.txt
+ SUCCESS  ===== Budget: (2, 2, 2) ====
+ SUCCESS  Predicate found in 0.58 s.
+ SUCCESS  Solution in TermFrequencyAccumulator_2-2-2_2_soln.txt
+ SUCCESS  ===== Budget: (0, 2, 3) ====
+ SUCCESS  Predicate found in 4.11 s.
+ SUCCESS  Divide function found in 1.60 s.
+ SUCCESS  ===== Budget: (0, 3, 3) ====
+ SUCCESS  Predicate found in 4.59 s.
+ SUCCESS  Divide function found in 1.60 s.
+ SUCCESS  ===== Budget: (1, 2, 3) ====
+ SUCCESS  Predicate found in 4.28 s.
+ SUCCESS  Divide function found in 1.58 s.
+ SUCCESS  ===== Budget: (1, 3, 3) ====
+ SUCCESS  Predicate found in 4.34 s.
+ SUCCESS  Divide function found in 1.60 s.
+ SUCCESS  ===== Budget: (2, 2, 3) ====
+ SUCCESS  Predicate found in 3.21 s.
+/tmp/nix-shell.p5GlJh/TermFrequencyAccumulator_join_sketch_2_2_3_48.rkt:38:0: read-syntax: expected a `)` to close `(`
+  possible cause: indentation suggests a missing `)` before line 40
+  context...:
+   /nix/store/z4bh5md02ah6vc7mmw2i0skkfdgjq7dq-racket-8.14/share/racket/collects/syntax/module-reader.rkt:214:17: body
+   /nix/store/z4bh5md02ah6vc7mmw2i0skkfdgjq7dq-racket-8.14/share/racket/collects/syntax/module-reader.rkt:211:2: wrap-internal
+   .../syntax/module-reader.rkt:76:9: wrap-internal/wrapper
+ SUCCESS  ===== Budget: (2, 3, 3) ====
+ SUCCESS  Predicate found in 2.76 s.
+/tmp/nix-shell.p5GlJh/TermFrequencyAccumulator_join_sketch_2_3_3_50.rkt:38:0: read-syntax: expected a `)` to close `(`
+  possible cause: indentation suggests a missing `)` before line 40
+  context...:
+   /nix/store/z4bh5md02ah6vc7mmw2i0skkfdgjq7dq-racket-8.14/share/racket/collects/syntax/module-reader.rkt:214:17: body
+   /nix/store/z4bh5md02ah6vc7mmw2i0skkfdgjq7dq-racket-8.14/share/racket/collects/syntax/module-reader.rkt:211:2: wrap-internal
+   .../syntax/module-reader.rkt:76:9: wrap-internal/wrapper
+ SUCCESS  Solution(/home/zwang/research/ink/evaluation/parsynt/TermFrequencyAccumulator.minic):
+Single pass function:
+‣ f1 input = List.fold ~f:⊕ ~init:{l = []} input 
+‣ s ⊕ a =
+      (post (List.fold ~f:(λ e s.(a, s) ⊗ e)) ~init:(pre s a) s.l) a))
+where
+‣ (x, x2) ⊗ y =
+      {tmp = if y.n0 = x.n0 then x2.tmp ++ [{n0 = y.n0; n1 = y.n1 + x.n1}] else
+               x2.tmp ++ [{n0 = y.n0; n1 = y.n1}];
+       to_add = if y.n0 = x.n0 then false else x2.to_add})
+‣ post x2 x =
+      {l = if x2.to_add then x2.tmp ++ [{n0 = x.n0; n1 = x.n1}] else x2.tmp}
+‣ pre output11 x = 
+      {tmp = []; to_add = true}
+
+Divide function (2.00s):
+divide(X) =
+let pivot = List.fold ~f:(fun (x7 pivot) -> pivot) ~init:(hd X) X in
+  partition (fun (x7) -> x7.n0 >= pivot.n1) X
+
+Join (2.09 s): join(s0, s1) = {l = s0.l ++ s1.l}
+
+ SUCCESS  Solution(/home/zwang/research/ink/evaluation/parsynt/TermFrequencyAccumulator.minic):
+Single pass function:
+‣ f11 input = List.fold ~f:⊕ ~init:{l = []; aux = -32767; aux1 = 32767;
+                                        aux2 = -32767; aux3 = 32767} input 
+‣ s ⊕ a =
+      (post (List.fold ~f:(λ e s.(a, s) ⊗ e)) ~init:(pre s a) s.l) a))
+where
+‣ (x, _s) ⊗ y =
+      {tmp = if y.n0 = x.n0 then _s.tmp ++ [{n0 = y.n0; n1 = y.n1 + x.n1}] else
+               _s.tmp ++ [{n0 = y.n0; n1 = y.n1}];
+       to_add = if y.n0 = x.n0 then false else _s.to_add; aux = _s.aux;
+       aux1 = _s.aux1; aux2 = _s.aux2; aux3 = _s.aux3})
+‣ post _s2 x =
+      {l = if _s2.to_add then _s2.tmp ++ [{n0 = x.n0; n1 = x.n1}] else _s2.tmp;
+       aux = max (_s2.aux, x.n0); aux1 = min (_s2.aux1, x.n0);
+       aux2 = max (_s2.aux2, x.n1); aux3 = min (_s2.aux3, x.n1)}
+‣ pre _s1 x = 
+      {tmp = []; to_add = true; aux = _s1.aux; aux1 = _s1.aux1;
+       aux2 = _s1.aux2; aux3 = _s1.aux3}
+
+Divide function (0.96s):
+divide(X1) =
+let pivot2 = List.fold ~f:(fun (x17 pivot2) -> pivot2) ~init:(hd X1) X1 in
+  partition (fun (x17) -> x17.n0 > pivot2.n0) X1
+
+Join (2.07 s):
+join(s01, s11) =
+{l = List.fold
+     ~f:(fun (elt accum) ->
+         if elt.n0 <= s01.aux1 then accum ++ [elt] else accum) ~init:(
+       s01.l) s11.l;
+ aux = max (s01.aux, s11.aux); aux1 = min (s01.aux1, s11.aux1);
+ aux2 = max (s01.aux2, s11.aux2); aux3 = min (s01.aux3, s11.aux3)}
+
+ SUCCESS  Solution(/home/zwang/research/ink/evaluation/parsynt/TermFrequencyAccumulator.minic):
+Single pass function:
+‣ f1 input = List.fold ~f:⊕ ~init:{l = []} input 
+‣ s ⊕ a =
+      (post (List.fold ~f:(λ e s.(a, s) ⊗ e)) ~init:(pre s a) s.l) a))
+where
+‣ (x, x2) ⊗ y =
+      {tmp = if y.n0 = x.n0 then x2.tmp ++ [{n0 = y.n0; n1 = y.n1 + x.n1}] else
+               x2.tmp ++ [{n0 = y.n0; n1 = y.n1}];
+       to_add = if y.n0 = x.n0 then false else x2.to_add})
+‣ post x2 x =
+      {l = if x2.to_add then x2.tmp ++ [{n0 = x.n0; n1 = x.n1}] else x2.tmp}
+‣ pre output11 x = 
+      {tmp = []; to_add = true}
+
+Join (0.86 s): join(s02, s12) = f1 (s02.l ++ s12.l)
+
+ SUCCESS  Finished.

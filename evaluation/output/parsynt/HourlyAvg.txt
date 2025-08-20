@@ -1,0 +1,37 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/HourlyAvg.minic.
+ SUCCESS  Equation system: 
+// --- Lifted function ---
+_s1 = {
+  output1 =
+  {n0 = 0; n1 = 0; n2 = 0; n3 = 0; n4 = 0; n5 = 0; n6 = 0; n7 = 0; n8 = 0;
+   n9 = 0; n10 = 0; n11 = 0}; }for(x in input){
+                                 _s1 = {
+                                   output1 =
+                                   if ¬ (_s1.output1.n7 = 0) then
+                                     {n0 = _s1.output1.n0 + x.n0;
+                                      n1 = _s1.output1.n1 + x.n1;
+                                      n2 = _s1.output1.n2 + x.n2;
+                                      n3 = _s1.output1.n3 + x.n3;
+                                      n4 = _s1.output1.n4 + x.n4;
+                                      n5 = _s1.output1.n5 + x.n5;
+                                      n6 = _s1.output1.n6 + x.n6;
+                                      n7 = _s1.output1.n7;
+                                      n8 = _s1.output1.n8 + x.n7;
+                                      n9 = _s1.output1.n9 + x.n8;
+                                      n10 = _s1.output1.n10 + 1;
+                                      n11 = _s1.output1.n11 + 1}
+                                     else
+                                     {n0 = x.n0; n1 = x.n1; n2 = x.n2;
+                                      n3 = x.n3; n4 = x.n4; n5 = x.n5;
+                                      n6 = x.n6; n7 = 1; n8 = x.n7; n9 = x.n8;
+                                      n10 = 1; n11 = 1};
+                                 }
+                                 }
+                                 return _s1;
+//--- Splitting predicate: true
+//--- Join function ---
+join($L1,$R1) = { ?? = (empty);
+}
+// Synthesized in (predicate : 0.14 s) + (join : 2.84 s)
+
+ SUCCESS  Finished.

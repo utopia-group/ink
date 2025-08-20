@@ -1,0 +1,19 @@
+
+program
+
+typedecl row struct {n0:int; n1:int; n2:int; n3:int; n4:int;};
+
+int *input;
+int x;
+row output = {n0=0, n1=0, n2=0, n3=0, n4=0};
+
+for (x in input){
+  if(x < output.n1) {
+    output = {n0=output.n0+1, n1=x, n2=output.n2, n3=output.n3+x, n4=output.n4+x*x};
+  }
+  if(x > output.n2) {
+    output = {n0=output.n0+1, n1=output.n1, n2=x, n3=output.n3+x, n4=output.n4+x*x};
+  }
+}
+return output;
+

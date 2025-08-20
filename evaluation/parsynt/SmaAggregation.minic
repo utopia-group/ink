@@ -1,0 +1,33 @@
+program
+
+typedecl row struct {n0:int; n1:int; n2:int;};
+typedecl res struct {n0:int; n1:int; n2:int; n3:int;};
+
+row *input;
+row x;
+res output = {n0=999999, n1=-999999, n2=0, n3=0};
+
+int newStartTime;
+int newEndTime;
+int newPayload;
+int newCount;
+
+for (x in input){
+  if(x.n0 < output.n0) {
+    newStartTime = x.n0;
+  } else {
+    newStartTime = output.n0;
+  }
+  
+  if(x.n1 > output.n1) {
+    newEndTime = x.n1;
+  } else {
+    newEndTime = output.n1;
+  }
+  
+  newPayload = output.n2 + x.n2;
+  newCount = output.n3 + 1;
+  
+  output = {n0=newStartTime, n1=newEndTime, n2=newPayload, n3=newCount};
+}
+return output;

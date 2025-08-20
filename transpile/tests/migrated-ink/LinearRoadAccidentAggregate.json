@@ -1,0 +1,274 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "acc",
+    "param_type": {
+      "type": "Tuple",
+      "elms": [
+        {
+          "type": "Set",
+          "elm": {
+            "type": "Num"
+          }
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        }
+      ]
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "tuple",
+      "param_type": {
+        "type": "Tuple",
+        "elms": [
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Bool"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Str"
+          }
+        ]
+      },
+      "body": {
+        "type": "Let",
+        "name": "newVids",
+        "expr": {
+          "type": "App",
+          "func": {
+            "type": "App",
+            "func": {
+              "type": "Var",
+              "name": "set_add"
+            },
+            "arg": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "tuple"
+              },
+              "index": 1
+            }
+          },
+          "arg": {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "acc"
+            },
+            "index": 0
+          }
+        },
+        "body": {
+          "type": "Tuple",
+          "values": [
+            {
+              "type": "Var",
+              "name": "newVids"
+            },
+            {
+              "type": "Ite",
+              "cond": {
+                "type": "BinOp",
+                "op": ">",
+                "left": {
+                  "type": "TupleAccess",
+                  "tuple_expr": {
+                    "type": "Var",
+                    "name": "acc"
+                  },
+                  "index": 1
+                },
+                "right": {
+                  "type": "TupleAccess",
+                  "tuple_expr": {
+                    "type": "Var",
+                    "name": "tuple"
+                  },
+                  "index": 0
+                }
+              },
+              "then_expr": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "acc"
+                },
+                "index": 1
+              },
+              "else_expr": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "tuple"
+                },
+                "index": 0
+              }
+            },
+            {
+              "type": "Ite",
+              "cond": {
+                "type": "BinOp",
+                "op": ">",
+                "left": {
+                  "type": "TupleAccess",
+                  "tuple_expr": {
+                    "type": "Var",
+                    "name": "acc"
+                  },
+                  "index": 2
+                },
+                "right": {
+                  "type": "TupleAccess",
+                  "tuple_expr": {
+                    "type": "Var",
+                    "name": "tuple"
+                  },
+                  "index": 9
+                }
+              },
+              "then_expr": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "acc"
+                },
+                "index": 2
+              },
+              "else_expr": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "tuple"
+                },
+                "index": 9
+              }
+            },
+            {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "tuple"
+              },
+              "index": 3
+            },
+            {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "tuple"
+              },
+              "index": 4
+            },
+            {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "tuple"
+              },
+              "index": 5
+            },
+            {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "tuple"
+              },
+              "index": 6
+            },
+            {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "tuple"
+              },
+              "index": 7
+            }
+          ]
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Tuple",
+    "values": [
+      {
+        "type": "Var",
+        "name": "empty_set"
+      },
+      {
+        "type": "Var",
+        "name": "_mn"
+      },
+      {
+        "type": "Var",
+        "name": "_mn"
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      }
+    ]
+  }
+}

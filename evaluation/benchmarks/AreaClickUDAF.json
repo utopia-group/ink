@@ -1,0 +1,110 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "buffer",
+    "param_type": {
+      "type": "Tuple",
+      "elms": [
+        {
+          "type": "Map",
+          "key": {
+            "type": "Str"
+          },
+          "value": {
+            "type": "Num"
+          }
+        },
+        {
+          "type": "Num"
+        }
+      ]
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "input",
+      "param_type": {
+        "type": "Str"
+      },
+      "body": {
+        "type": "Let",
+        "name": "updatedMap",
+        "expr": {
+          "type": "MapAssign",
+          "map": {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "buffer"
+            },
+            "index": 0
+          },
+          "key": {
+            "type": "Var",
+            "name": "input"
+          },
+          "value": {
+            "type": "BinOp",
+            "op": "+",
+            "left": {
+              "type": "MapAccess",
+              "map": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "buffer"
+                },
+                "index": 0
+              },
+              "key": {
+                "type": "Var",
+                "name": "input"
+              }
+            },
+            "right": {
+              "type": "Num",
+              "value": 1
+            }
+          }
+        },
+        "body": {
+          "type": "Tuple",
+          "values": [
+            {
+              "type": "Var",
+              "name": "updatedMap"
+            },
+            {
+              "type": "BinOp",
+              "op": "+",
+              "left": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "buffer"
+                },
+                "index": 1
+              },
+              "right": {
+                "type": "Num",
+                "value": 1
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Tuple",
+    "values": [
+      {
+        "type": "Var",
+        "name": "empty_map"
+      },
+      {
+        "type": "Num",
+        "value": 0
+      }
+    ]
+  }
+}

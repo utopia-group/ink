@@ -1,0 +1,23 @@
+program
+
+typedecl row struct {n0:int; n1:int;};
+typedecl res struct {n0:int; n1:int; n2:int; n3:int; n4:int;};
+
+row *input;
+row x;
+res output = {n0=0, n1=0, n2=0, n3=0, n4=0};
+
+int x_val;
+int p_val;
+
+for (x in input){
+  x_val = (x.n0 - 2000) * 12 + 1;
+  p_val = x.n1;
+  
+  output = {n0=output.n0+x_val, 
+           n1=output.n1+p_val, 
+           n2=output.n2+(x_val*p_val), 
+           n3=output.n3+(x_val*x_val), 
+           n4=output.n4+1};
+}
+return output;

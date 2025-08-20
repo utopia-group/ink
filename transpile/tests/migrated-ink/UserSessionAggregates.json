@@ -1,0 +1,109 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "buffer",
+    "param_type": {
+      "type": "Tuple",
+      "elms": [
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        }
+      ]
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "value",
+      "param_type": {
+        "type": "Num"
+      },
+      "body": {
+        "type": "Let",
+        "name": "newCheckoutEvents",
+        "expr": {
+          "type": "Ite",
+          "cond": {
+            "type": "UnaryOp",
+            "op": "not",
+            "expr": {
+              "type": "BinOp",
+              "op": "=",
+              "left": {
+                "type": "Var",
+                "name": "value"
+              },
+              "right": {
+                "type": "Num",
+                "value": 0
+              }
+            }
+          },
+          "then_expr": {
+            "type": "BinOp",
+            "op": "+",
+            "left": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "buffer"
+              },
+              "index": 1
+            },
+            "right": {
+              "type": "Num",
+              "value": 1
+            }
+          },
+          "else_expr": {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "buffer"
+            },
+            "index": 1
+          }
+        },
+        "body": {
+          "type": "Tuple",
+          "values": [
+            {
+              "type": "BinOp",
+              "op": "+",
+              "left": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "buffer"
+                },
+                "index": 0
+              },
+              "right": {
+                "type": "Num",
+                "value": 1
+              }
+            },
+            {
+              "type": "Var",
+              "name": "newCheckoutEvents"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Tuple",
+    "values": [
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      }
+    ]
+  }
+}

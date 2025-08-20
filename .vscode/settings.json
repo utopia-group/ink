@@ -1,0 +1,7 @@
+{
+  "rust-analyzer.runnables.extraEnv": {
+    "RUST_LOG": "none,rink=debug"
+  },
+  "rust-analyzer.testExplorer": true,
+  "cmake.ignoreCMakeListsMissing": true
+}

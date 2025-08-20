@@ -1,0 +1,21 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/LinearRoadAccidentAggregate.minic.
+  ERROR   Typechecking: message : comp_op type : (Int, [Int])
+          expr : (>
+                  (choose 0 1 -1 y (row-n9 x) (row-n8 x) (row-n7 x) (row-n6 x)
+                          (row-n5 x) (row-n4 x) (row-n3 x) (row-n2 x)
+                          (row-n1 x) (row-n0 x))
+                  ($accum-n8 _acc))
+
+Fatal error: exception Failure("type_term_exn")
+Raised at Stdlib.failwith in file "stdlib.ml", line 29, characters 17-33
+Called from Recursion__SelfFoldSinglePass.draw_sketches_otimes.(fun).f in file "src/recursion/SelfFoldSinglePass.ml", line 336, characters 20-100
+Called from Base__List.map in file "src/list.ml", line 433, characters 15-18
+Called from Recursion__SelfFoldSinglePass.draw_sketches_otimes.(fun) in file "src/recursion/SelfFoldSinglePass.ml", line 341, characters 44-64
+Called from Base__List.map in file "src/list.ml", line 433, characters 15-18
+Called from Recursion__SelfFoldSinglePass.draw_sketches_otimes in file "src/recursion/SelfFoldSinglePass.ml", line 329, characters 6-584
+Called from Recursion__SelfFoldSinglePass.gen_sketches in file "src/recursion/SelfFoldSinglePass.ml", line 366, characters 17-53
+Called from Recursion__SelfFoldSinglePass.single_pass_transform in file "src/recursion/SelfFoldSinglePass.ml", line 492, characters 21-79
+Called from Recursion__SelfFoldSinglePass.to_single_pass in file "src/recursion/SelfFoldSinglePass.ml", line 542, characters 17-75
+Called from Base__List.map in file "src/list.ml", line 433, characters 15-18
+Called from Dune__exe__Parsynt.main in file "bin/Parsynt.ml", line 132, characters 6-84
+Called from Dune__exe__Parsynt in file "bin/Parsynt.ml", line 138, characters 0-7

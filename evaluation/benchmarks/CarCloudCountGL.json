@@ -1,0 +1,183 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "acc",
+    "param_type": {
+      "type": "Tuple",
+      "elms": [
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        }
+      ]
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "input",
+      "param_type": {
+        "type": "Tuple",
+        "elms": [
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          }
+        ]
+      },
+      "body": {
+        "type": "Let",
+        "name": "newTimestamp",
+        "expr": {
+          "type": "Ite",
+          "cond": {
+            "type": "BinOp",
+            "op": ">",
+            "left": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "input"
+              },
+              "index": 4
+            },
+            "right": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "acc"
+              },
+              "index": 3
+            }
+          },
+          "then_expr": {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "input"
+            },
+            "index": 4
+          },
+          "else_expr": {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "acc"
+            },
+            "index": 3
+          }
+        },
+        "body": {
+          "type": "Tuple",
+          "values": [
+            {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "input"
+              },
+              "index": 0
+            },
+            {
+              "type": "BinOp",
+              "op": "+",
+              "left": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "acc"
+                },
+                "index": 1
+              },
+              "right": {
+                "type": "Num",
+                "value": 1
+              }
+            },
+            {
+              "type": "Ite",
+              "cond": {
+                "type": "BinOp",
+                "op": ">",
+                "left": {
+                  "type": "TupleAccess",
+                  "tuple_expr": {
+                    "type": "Var",
+                    "name": "input"
+                  },
+                  "index": 3
+                },
+                "right": {
+                  "type": "TupleAccess",
+                  "tuple_expr": {
+                    "type": "Var",
+                    "name": "acc"
+                  },
+                  "index": 2
+                }
+              },
+              "then_expr": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "input"
+                },
+                "index": 3
+              },
+              "else_expr": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "acc"
+                },
+                "index": 2
+              }
+            },
+            {
+              "type": "Var",
+              "name": "newTimestamp"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Tuple",
+    "values": [
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Var",
+        "name": "_mn"
+      },
+      {
+        "type": "Var",
+        "name": "_mn"
+      }
+    ]
+  }
+}

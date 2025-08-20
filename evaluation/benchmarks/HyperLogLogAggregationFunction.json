@@ -1,0 +1,105 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "s",
+    "param_type": {
+      "type": "Tuple",
+      "elms": [
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Set",
+          "elm": {
+            "type": "Num"
+          }
+        }
+      ]
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "x",
+      "param_type": {
+        "type": "Tuple",
+        "elms": [
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          }
+        ]
+      },
+      "body": {
+        "type": "Tuple",
+        "values": [
+          {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "x"
+            },
+            "index": 0
+          },
+          {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "x"
+            },
+            "index": 1
+          },
+          {
+            "type": "App",
+            "func": {
+              "type": "App",
+              "func": {
+                "type": "Var",
+                "name": "set_add"
+              },
+              "arg": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "x"
+                },
+                "index": 2
+              }
+            },
+            "arg": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "s"
+              },
+              "index": 2
+            }
+          }
+        ]
+      }
+    }
+  },
+  "init": {
+    "type": "Tuple",
+    "values": [
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Var",
+        "name": "empty_set"
+      }
+    ]
+  }
+}

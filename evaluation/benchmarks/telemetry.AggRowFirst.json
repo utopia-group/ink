@@ -1,0 +1,154 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "map_output",
+    "param_type": {
+      "type": "Map",
+      "key": {
+        "type": "Num"
+      },
+      "value": {
+        "type": "Tuple",
+        "elms": [
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          }
+        ]
+      }
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "xs",
+      "param_type": {
+        "type": "List",
+        "elm": {
+          "type": "Tuple",
+          "elms": [
+            {
+              "type": "Num"
+            },
+            {
+              "type": "Num"
+            }
+          ]
+        }
+      },
+      "body": {
+        "type": "App",
+        "func": {
+          "type": "App",
+          "func": {
+            "type": "App",
+            "func": {
+              "type": "Var",
+              "name": "foldl"
+            },
+            "arg": {
+              "type": "Lambda",
+              "param": "m",
+              "param_type": {
+                "type": "Map",
+                "key": {
+                  "type": "Num"
+                },
+                "value": {
+                  "type": "Tuple",
+                  "elms": [
+                    {
+                      "type": "Num"
+                    },
+                    {
+                      "type": "Num"
+                    }
+                  ]
+                }
+              },
+              "body": {
+                "type": "Lambda",
+                "param": "x",
+                "param_type": {
+                  "type": "Tuple",
+                  "elms": [
+                    {
+                      "type": "Num"
+                    },
+                    {
+                      "type": "Num"
+                    }
+                  ]
+                },
+                "body": {
+                  "type": "Ite",
+                  "cond": {
+                    "type": "UnaryOp",
+                    "op": "not",
+                    "expr": {
+                      "type": "App",
+                      "func": {
+                        "type": "App",
+                        "func": {
+                          "type": "Var",
+                          "name": "contains_key"
+                        },
+                        "arg": {
+                          "type": "Var",
+                          "name": "m"
+                        }
+                      },
+                      "arg": {
+                        "type": "TupleAccess",
+                        "tuple_expr": {
+                          "type": "Var",
+                          "name": "x"
+                        },
+                        "index": 0
+                      }
+                    }
+                  },
+                  "then_expr": {
+                    "type": "MapAssign",
+                    "map": {
+                      "type": "Var",
+                      "name": "m"
+                    },
+                    "key": {
+                      "type": "TupleAccess",
+                      "tuple_expr": {
+                        "type": "Var",
+                        "name": "x"
+                      },
+                      "index": 0
+                    },
+                    "value": {
+                      "type": "Var",
+                      "name": "x"
+                    }
+                  },
+                  "else_expr": {
+                    "type": "Var",
+                    "name": "m"
+                  }
+                }
+              }
+            }
+          },
+          "arg": {
+            "type": "Var",
+            "name": "map_output"
+          }
+        },
+        "arg": {
+          "type": "Var",
+          "name": "xs"
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Var",
+    "name": "empty_map"
+  }
+}

@@ -1,0 +1,1 @@
+{"status":"Timeout","normalizer":{"Ok":""},"input_stats":{"has_tuple":true,"has_collection":true,"has_nested_collection":false,"has_conditional":false},"input_ast_size":18,"normalizer_ast_size":0,"elapsed":601.5971}

@@ -1,0 +1,18 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/BloomFilterAggregationFunction.minic.
+ SUCCESS  Equation system: 
+// --- Lifted function ---
+_s1 = { n0 = 0; n1 = []; }for(x in input){
+                            _s1 = {
+                              n0 = _s1.n0;
+                              n1 = _s1.n1 ++ [x.n1];
+                            }
+                            }
+                            return _s1;
+//--- Splitting predicate: (empty)
+//--- Join function ---
+join($L,$R) = { n0 = $L.n0;
+                ?? = (empty);
+}
+// Synthesized in (predicate : 0.02 s) + (join : 3.21 s)
+
+ SUCCESS  Finished.

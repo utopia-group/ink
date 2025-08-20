@@ -1,0 +1,17 @@
+
+program
+
+typedecl row struct {n0:int; n1:int; n2:int; n3:int;};
+
+row *input;
+row x;
+row output = {n0=0, n1=0, n2=0, n3=0};
+
+
+for (x in input){
+  if (x.n3 > output.n3){
+    output = x;
+  }
+}
+return output;
+

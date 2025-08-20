@@ -1,0 +1,17 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/telemetry.AggRowFirst.minic.
+ SUCCESS  Single pass translation: solution found (0.924 s).
+ SUCCESS  ===== Budget: (0, 2, 2) ====
+ SUCCESS  ===== Budget: (1, 2, 2) ====
+Fatal error: exception Failure("Unexpected")
+Raised at Stdlib.failwith in file "stdlib.ml", line 29, characters 17-33
+Called from Recursion__SketchBuilders.extend_acc in file "src/recursion/SketchBuilders.ml", line 398, characters 11-32
+Called from Recursion__SketchBuilders.lift_std_soln in file "src/recursion/SketchBuilders.ml", line 429, characters 25-55
+Called from Recursion__Discover.pred_from_unfoldings in file "src/recursion/Discover.ml", line 159, characters 56-77
+Called from Recursion__Discover.deduce_predicate in file "src/recursion/Discover.ml", line 207, characters 10-83
+Called from Recursion__Discover.discover_predicate_and_sketches in file "src/recursion/Discover.ml", line 222, characters 4-55
+Called from Recursion__SelfFoldSinglePass.budget_loop in file "src/recursion/SelfFoldSinglePass.ml", line 690, characters 8-51
+Called from Dune__exe__Parsynt.to_dnc in file "bin/Parsynt.ml", line 80, characters 14-52
+Re-raised at Dune__exe__Parsynt.to_dnc in file "bin/Parsynt.ml", line 100, characters 13-20
+Called from Base__List.map in file "src/list.ml", line 433, characters 15-18
+Called from Dune__exe__Parsynt.main in file "bin/Parsynt.ml", line 134, characters 12-42
+Called from Dune__exe__Parsynt in file "bin/Parsynt.ml", line 138, characters 0-7

@@ -1,0 +1,32 @@
+
+program
+
+typedecl row struct {n0:int; n1:int;};
+typedecl res struct {n0:int; n1:int;};
+
+row **input;
+row *x;
+row y;
+row z;
+res *output = [];
+res *tmp;
+
+boolean to_add;
+
+for (x in input){
+  for (z in x){
+    to_add = true;
+    tmp = output;
+    for(y in output){
+        if(y.n0 == z.n0) {
+            to_add = false;
+        }
+    }
+    if(to_add){
+      tmp += [z];
+    }
+    output = tmp;
+  }
+}
+return output;
+

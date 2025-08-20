@@ -1,0 +1,19 @@
+
+program
+
+typedecl row struct {n0:int; n1:int; n2:int; n3:int; n4:int; n5:int; n6:int; n7:int; n8:int;};
+typedecl res struct {n0:int; n1:int; n2:int;};
+
+row *input;
+row x;
+res output = {n0=0, n1=0, n2=0};
+
+
+
+for (x in input){
+  if ((x.n5 < x.n8) && (x.n6 < x.n8)){
+    output = {n0=x.n7, n1=x.n1, n2=x.n2};
+  }
+}
+return output;
+

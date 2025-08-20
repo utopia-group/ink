@@ -1,0 +1,27 @@
+program
+
+typedecl row struct {n0:int; n1:int; n2:int;};
+
+int * output = [];
+int * tmp;
+int y;
+
+row * input;
+row x;
+
+boolean to_add;
+
+for(x in input) {
+  to_add = true;
+  tmp = output;
+  for(y in output){
+      if(y == x.n2) {
+          to_add = false;
+      }
+  }
+  if(to_add){
+    tmp += [x.n2];
+  }
+  output = tmp;
+}
+return output as set;

@@ -1,0 +1,106 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "buffer",
+    "param_type": {
+      "type": "Tuple",
+      "elms": [
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Str"
+        },
+        {
+          "type": "Str"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        }
+      ]
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "input",
+      "param_type": {
+        "type": "Tuple",
+        "elms": [
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Str"
+          },
+          {
+            "type": "Str"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          }
+        ]
+      },
+      "body": {
+        "type": "Ite",
+        "cond": {
+          "type": "BinOp",
+          "op": ">",
+          "left": {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "input"
+            },
+            "index": 4
+          },
+          "right": {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "buffer"
+            },
+            "index": 4
+          }
+        },
+        "then_expr": {
+          "type": "Var",
+          "name": "input"
+        },
+        "else_expr": {
+          "type": "Var",
+          "name": "buffer"
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Tuple",
+    "values": [
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Str",
+        "value": ""
+      },
+      {
+        "type": "Str",
+        "value": ""
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Var",
+        "name": "_mn"
+      }
+    ]
+  }
+}

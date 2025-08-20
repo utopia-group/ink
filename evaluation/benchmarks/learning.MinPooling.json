@@ -1,0 +1,164 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "s",
+    "param_type": {
+      "type": "List",
+      "elm": {
+        "type": "Num"
+      }
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "x",
+      "param_type": {
+        "type": "List",
+        "elm": {
+          "type": "Num"
+        }
+      },
+      "body": {
+        "type": "App",
+        "func": {
+          "type": "App",
+          "func": {
+            "type": "Var",
+            "name": "map"
+          },
+          "arg": {
+            "type": "Lambda",
+            "param": "p",
+            "param_type": {
+              "type": "Tuple",
+              "elms": [
+                {
+                  "type": "Num"
+                },
+                {
+                  "type": "Num"
+                }
+              ]
+            },
+            "body": {
+              "type": "App",
+              "func": {
+                "type": "App",
+                "func": {
+                  "type": "Var",
+                  "name": "min"
+                },
+                "arg": {
+                  "type": "TupleAccess",
+                  "tuple_expr": {
+                    "type": "Var",
+                    "name": "p"
+                  },
+                  "index": 0
+                }
+              },
+              "arg": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "p"
+                },
+                "index": 1
+              }
+            }
+          }
+        },
+        "arg": {
+          "type": "App",
+          "func": {
+            "type": "App",
+            "func": {
+              "type": "Var",
+              "name": "zip"
+            },
+            "arg": {
+              "type": "Var",
+              "name": "s"
+            }
+          },
+          "arg": {
+            "type": "Var",
+            "name": "x"
+          }
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Cons",
+    "head": {
+      "type": "Var",
+      "name": "_mx"
+    },
+    "tail": {
+      "type": "Cons",
+      "head": {
+        "type": "Var",
+        "name": "_mx"
+      },
+      "tail": {
+        "type": "Cons",
+        "head": {
+          "type": "Var",
+          "name": "_mx"
+        },
+        "tail": {
+          "type": "Cons",
+          "head": {
+            "type": "Var",
+            "name": "_mx"
+          },
+          "tail": {
+            "type": "Cons",
+            "head": {
+              "type": "Var",
+              "name": "_mx"
+            },
+            "tail": {
+              "type": "Cons",
+              "head": {
+                "type": "Var",
+                "name": "_mx"
+              },
+              "tail": {
+                "type": "Cons",
+                "head": {
+                  "type": "Var",
+                  "name": "_mx"
+                },
+                "tail": {
+                  "type": "Cons",
+                  "head": {
+                    "type": "Var",
+                    "name": "_mx"
+                  },
+                  "tail": {
+                    "type": "Cons",
+                    "head": {
+                      "type": "Var",
+                      "name": "_mx"
+                    },
+                    "tail": {
+                      "type": "Cons",
+                      "head": {
+                        "type": "Var",
+                        "name": "_mx"
+                      },
+                      "tail": {
+                        "type": "Nil"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/sales.UDAF.minic.
+ SUCCESS  Equation system: 
+// --- Lifted function ---
+_s1 = { output1 = 0; }for(x in input){
+                        _s1 = {
+                          output1 =
+                          if x > 500 then _s1.output1 + x else _s1.output1;
+                        }
+                        }
+                        return _s1;
+//--- Splitting predicate: input(0) <= 500
+//--- Join function ---
+join($L1,$R1) = {
+  output1 = if 1 > 0 then $L1.output1 + $R1.output1 else $L1.output1;
+}
+// Synthesized in (predicate : 0.10 s) + (join : 1.13 s)
+
+ SUCCESS  Finished.

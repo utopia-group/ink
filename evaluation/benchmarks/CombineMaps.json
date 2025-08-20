@@ -1,0 +1,50 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "s",
+    "param_type": {
+      "type": "Map",
+      "key": {
+        "type": "Num"
+      },
+      "value": {
+        "type": "Num"
+      }
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "m",
+      "param_type": {
+        "type": "Map",
+        "key": {
+          "type": "Num"
+        },
+        "value": {
+          "type": "Num"
+        }
+      },
+      "body": {
+        "type": "App",
+        "func": {
+          "type": "App",
+          "func": {
+            "type": "Var",
+            "name": "concat_map"
+          },
+          "arg": {
+            "type": "Var",
+            "name": "s"
+          }
+        },
+        "arg": {
+          "type": "Var",
+          "name": "m"
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Var",
+    "name": "empty_map"
+  }
+}

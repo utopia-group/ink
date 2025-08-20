@@ -1,0 +1,18 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/PointAttributionScalaUdaf.minic.
+ SUCCESS  Equation system: 
+// --- Lifted function ---
+_s1 = { output1 = 0; }for(x in input){
+                        _s1 = {
+                          output1 =
+                          if x > 100 then _s1.output1 + x else
+                            _s1.output1 + 100;
+                        }
+                        }
+                        return _s1;
+//--- Splitting predicate: true
+//--- Join function ---
+join($L1,$R1) = { output1 = (max (0, $L1.output1)) + (max ($R1.output1, 0));
+}
+// Synthesized in (predicate : 0.10 s) + (join : 1.33 s)
+
+ SUCCESS  Finished.

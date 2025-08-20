@@ -1,0 +1,91 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "buffer",
+    "param_type": {
+      "type": "Tuple",
+      "elms": [
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Set",
+          "elm": {
+            "type": "Num"
+          }
+        }
+      ]
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "value",
+      "param_type": {
+        "type": "Num"
+      },
+      "body": {
+        "type": "Let",
+        "name": "updatedUsers",
+        "expr": {
+          "type": "App",
+          "func": {
+            "type": "App",
+            "func": {
+              "type": "Var",
+              "name": "set_add"
+            },
+            "arg": {
+              "type": "Var",
+              "name": "value"
+            }
+          },
+          "arg": {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "buffer"
+            },
+            "index": 1
+          }
+        },
+        "body": {
+          "type": "Tuple",
+          "values": [
+            {
+              "type": "BinOp",
+              "op": "+",
+              "left": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "buffer"
+                },
+                "index": 0
+              },
+              "right": {
+                "type": "Num",
+                "value": 1
+              }
+            },
+            {
+              "type": "Var",
+              "name": "updatedUsers"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Tuple",
+    "values": [
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Var",
+        "name": "empty_set"
+      }
+    ]
+  }
+}

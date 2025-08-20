@@ -1,0 +1,16 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/Ex_7_UDAF.minic.
+ SUCCESS  Equation system: 
+// --- Lifted function ---
+_s1 = { out1 = 0; }for(x in a){
+                     _s1 = {
+                       out1 = if x > _s1.out1 then x else _s1.out1;
+                     }
+                     }
+                     return _s1;
+//--- Splitting predicate: a(0) > (if a(-1) > 0 then a(-1) else 0)
+//--- Join function ---
+join($L1,$R1) = { out1 = if $R1.out1 > $L1.out1 then $R1.out1 else $L1.out1;
+}
+// Synthesized in (predicate : 0.04 s) + (join : 2.03 s)
+
+ SUCCESS  Finished.

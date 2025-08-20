@@ -1,0 +1,1 @@
+{"status":"Success","normalizer":{"Ok":"λ(s1: ((num, num, num), num), s2: ((num, num, num), num)). ((min(s2._0._0, s1._0._0), max(s1._0._1, s2._0._1), (s1._0._2 + s2._0._2)), (s1._1 + s2._1))"},"input_stats":{"has_tuple":true,"has_collection":false,"has_nested_collection":false,"has_conditional":true},"input_ast_size":52,"normalizer_ast_size":34,"elapsed":4.4651346}

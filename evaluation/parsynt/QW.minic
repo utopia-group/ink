@@ -1,0 +1,27 @@
+
+program
+
+typedecl res struct {n0:int; n1:int; n2:int; n3:int; n4:int;};
+
+int *input;
+int x;
+res output = {n0=0, n1=0, n2=0, n3=0, n4=0};
+
+int temp2;
+int temp3;
+
+for (x in input){
+  if(output.n2 > x) {
+    temp2 = output.n2;
+  } else {
+    temp2 = x;
+  }
+  if(output.n3 > x) {
+    temp3 = output.n3;
+  } else {
+    temp3 = x;
+  }
+  output = {n0=output.n0+x, n1=output.n1+1, n2=temp2, n3=temp3, n4=output.n4+x*x};
+}
+return output;
+

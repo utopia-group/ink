@@ -1,0 +1,168 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "s",
+    "param_type": {
+      "type": "Tuple",
+      "elms": [
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Tuple",
+          "elms": [
+            {
+              "type": "Num"
+            },
+            {
+              "type": "Num"
+            }
+          ]
+        }
+      ]
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "x",
+      "param_type": {
+        "type": "Tuple",
+        "elms": [
+          {
+            "type": "Str"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          }
+        ]
+      },
+      "body": {
+        "type": "Ite",
+        "cond": {
+          "type": "BinOp",
+          "op": "&&",
+          "left": {
+            "type": "BinOp",
+            "op": "<",
+            "left": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "x"
+              },
+              "index": 5
+            },
+            "right": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "x"
+              },
+              "index": 8
+            }
+          },
+          "right": {
+            "type": "BinOp",
+            "op": "<",
+            "left": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "x"
+              },
+              "index": 6
+            },
+            "right": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "x"
+              },
+              "index": 8
+            }
+          }
+        },
+        "then_expr": {
+          "type": "Tuple",
+          "values": [
+            {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "x"
+              },
+              "index": 7
+            },
+            {
+              "type": "Tuple",
+              "values": [
+                {
+                  "type": "TupleAccess",
+                  "tuple_expr": {
+                    "type": "Var",
+                    "name": "x"
+                  },
+                  "index": 1
+                },
+                {
+                  "type": "TupleAccess",
+                  "tuple_expr": {
+                    "type": "Var",
+                    "name": "x"
+                  },
+                  "index": 2
+                }
+              ]
+            }
+          ]
+        },
+        "else_expr": {
+          "type": "Var",
+          "name": "s"
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Tuple",
+    "values": [
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Tuple",
+        "values": [
+          {
+            "type": "Num",
+            "value": 0
+          },
+          {
+            "type": "Num",
+            "value": 0
+          }
+        ]
+      }
+    ]
+  }
+}

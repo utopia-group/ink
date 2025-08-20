@@ -1,0 +1,51 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "buffer",
+    "param_type": {
+      "type": "Num"
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "sales",
+      "param_type": {
+        "type": "Num"
+      },
+      "body": {
+        "type": "Ite",
+        "cond": {
+          "type": "BinOp",
+          "op": ">",
+          "left": {
+            "type": "Var",
+            "name": "sales"
+          },
+          "right": {
+            "type": "Num",
+            "value": 500
+          }
+        },
+        "then_expr": {
+          "type": "BinOp",
+          "op": "+",
+          "left": {
+            "type": "Var",
+            "name": "buffer"
+          },
+          "right": {
+            "type": "Var",
+            "name": "sales"
+          }
+        },
+        "else_expr": {
+          "type": "Var",
+          "name": "buffer"
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Num",
+    "value": 0
+  }
+}

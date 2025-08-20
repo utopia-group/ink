@@ -1,0 +1,13 @@
+
+program
+
+
+int *input;
+int x;
+int *output = [];
+
+for (x in input){
+  output += [x];
+}
+return output;
+

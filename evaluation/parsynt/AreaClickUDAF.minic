@@ -1,0 +1,35 @@
+
+program
+
+typedecl kv struct {k:int; v:int;};
+
+typedecl res struct {n0:kv *; n1:int;};
+
+int * input;
+int x;
+
+kv * temp;
+kv y;
+
+res output = {n0=[], n1=0};
+
+boolean need_to_add;
+
+for (x in input){
+  temp = [];
+  need_to_add = true;
+  for (y in output.n0){
+    if(y.k == x){
+      temp += [{k=y.k, v=y.v+1}];
+      need_to_add = false;
+    } else {
+      temp += [y];
+    }
+  }
+  if (need_to_add){
+    temp += [{k=x, v=0}];
+  }
+  output = {n0=temp, n1=output.n1+1};
+}
+return output;
+

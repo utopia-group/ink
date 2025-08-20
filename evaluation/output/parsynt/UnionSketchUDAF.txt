@@ -1,0 +1,9 @@
+Term: x[x].
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/UnionSketchUDAF.minic.
+  ERROR   No single-pass function could be synthesized.
+Fatal error: exception Failure("Abort synthesis, not a single-pass function.")
+Raised at Stdlib.failwith in file "stdlib.ml", line 29, characters 17-33
+Called from Recursion__SelfFoldSinglePass.to_single_pass in file "src/recursion/SelfFoldSinglePass.ml", line 542, characters 17-75
+Called from Base__List.map in file "src/list.ml", line 433, characters 15-18
+Called from Dune__exe__Parsynt.main in file "bin/Parsynt.ml", line 132, characters 6-84
+Called from Dune__exe__Parsynt in file "bin/Parsynt.ml", line 138, characters 0-7

@@ -1,0 +1,19 @@
+
+program
+
+typedecl row struct {n0:int; n1:int;};
+typedecl res struct {n0:int; n1:int *;};
+
+row *input;
+row x;
+res output = {n0=0, n1=[]};
+
+int *tmp = [];
+
+for (x in input){
+  tmp = output.n1;
+  tmp += [x.n1];
+  output = {n0=output.n0+1, n1=tmp};
+}
+return output;
+

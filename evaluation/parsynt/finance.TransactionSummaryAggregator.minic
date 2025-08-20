@@ -1,0 +1,25 @@
+
+program
+
+typedecl row struct {n0:int; n1:boolean; n2:int;};
+typedecl res struct {n0:boolean; n1:int; n2:int; n3:int; n4:int;};
+
+row *input;
+row x;
+res output = {n0=false, n1=0, n2=0, n3=0, n4=0};
+
+int temp2;
+int temp3;
+
+for (x in input){
+  if (x.n1){
+    temp2 = output.n2 + 1;
+    temp3 = output.n3;
+  } else {
+    temp2 = output.n2;
+    temp3 = output.n3 + 1;
+  }
+  output = {n0=true, n1=x.n0, n2=temp2, n3=temp3, n4=output.n4+x.n2};
+}
+return output;
+

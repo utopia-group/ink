@@ -1,0 +1,1 @@
+{"status":"Success","normalizer":{"Ok":"λ(val_l: (num, str, str, num, num), val_r: (num, str, str, num, num)). ITE((val_l._4 < val_r._4), val_r, val_l)"},"input_stats":{"has_tuple":true,"has_collection":false,"has_nested_collection":false,"has_conditional":true},"input_ast_size":16,"normalizer_ast_size":10,"elapsed":6.530561}

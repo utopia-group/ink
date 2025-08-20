@@ -1,0 +1,9 @@
+Term: x[x].
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/telemetry.AggMapFirst.minic.
+  ERROR   More than two nested folds not supported.
+Fatal error: exception Failure("[src/recursion/SelfFoldSinglePass.ml][func_multiple_pass]: Modular approach for nested folds not implemented.\n")
+Raised at Stdlib.failwith in file "stdlib.ml", line 29, characters 17-33
+Called from Recursion__SelfFoldSinglePass.to_single_pass in file "src/recursion/SelfFoldSinglePass.ml", line 541, characters 10-39
+Called from Base__List.map in file "src/list.ml", line 433, characters 15-18
+Called from Dune__exe__Parsynt.main in file "bin/Parsynt.ml", line 132, characters 6-84
+Called from Dune__exe__Parsynt in file "bin/Parsynt.ml", line 138, characters 0-7

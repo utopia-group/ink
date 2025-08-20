@@ -1,0 +1,551 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "buffer",
+    "param_type": {
+      "type": "Tuple",
+      "elms": [
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        }
+      ]
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "input",
+      "param_type": {
+        "type": "Tuple",
+        "elms": [
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          }
+        ]
+      },
+      "body": {
+        "type": "Let",
+        "name": "isFirstUpdate",
+        "expr": {
+          "type": "BinOp",
+          "op": "=",
+          "left": {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "buffer"
+            },
+            "index": 7
+          },
+          "right": {
+            "type": "Num",
+            "value": 0
+          }
+        },
+        "body": {
+          "type": "Let",
+          "name": "newTotalBookings",
+          "expr": {
+            "type": "BinOp",
+            "op": "+",
+            "left": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "buffer"
+              },
+              "index": 0
+            },
+            "right": {
+              "type": "Num",
+              "value": 1
+            }
+          },
+          "body": {
+            "type": "Let",
+            "name": "newPreviousYear",
+            "expr": {
+              "type": "Ite",
+              "cond": {
+                "type": "Var",
+                "name": "isFirstUpdate"
+              },
+              "then_expr": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "buffer"
+                },
+                "index": 2
+              },
+              "else_expr": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "buffer"
+                },
+                "index": 3
+              }
+            },
+            "body": {
+              "type": "Let",
+              "name": "newCurrentYear",
+              "expr": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "input"
+                },
+                "index": 0
+              },
+              "body": {
+                "type": "Let",
+                "name": "newPreviousMonth",
+                "expr": {
+                  "type": "Ite",
+                  "cond": {
+                    "type": "Var",
+                    "name": "isFirstUpdate"
+                  },
+                  "then_expr": {
+                    "type": "TupleAccess",
+                    "tuple_expr": {
+                      "type": "Var",
+                      "name": "buffer"
+                    },
+                    "index": 4
+                  },
+                  "else_expr": {
+                    "type": "TupleAccess",
+                    "tuple_expr": {
+                      "type": "Var",
+                      "name": "buffer"
+                    },
+                    "index": 5
+                  }
+                },
+                "body": {
+                  "type": "Let",
+                  "name": "newCurrentMonth",
+                  "expr": {
+                    "type": "TupleAccess",
+                    "tuple_expr": {
+                      "type": "Var",
+                      "name": "input"
+                    },
+                    "index": 1
+                  },
+                  "body": {
+                    "type": "Let",
+                    "name": "newPreviousWeek",
+                    "expr": {
+                      "type": "Ite",
+                      "cond": {
+                        "type": "Var",
+                        "name": "isFirstUpdate"
+                      },
+                      "then_expr": {
+                        "type": "TupleAccess",
+                        "tuple_expr": {
+                          "type": "Var",
+                          "name": "buffer"
+                        },
+                        "index": 6
+                      },
+                      "else_expr": {
+                        "type": "TupleAccess",
+                        "tuple_expr": {
+                          "type": "Var",
+                          "name": "buffer"
+                        },
+                        "index": 7
+                      }
+                    },
+                    "body": {
+                      "type": "Let",
+                      "name": "newCurrentWeek",
+                      "expr": {
+                        "type": "TupleAccess",
+                        "tuple_expr": {
+                          "type": "Var",
+                          "name": "input"
+                        },
+                        "index": 4
+                      },
+                      "body": {
+                        "type": "Let",
+                        "name": "newPreviousDay",
+                        "expr": {
+                          "type": "Ite",
+                          "cond": {
+                            "type": "Var",
+                            "name": "isFirstUpdate"
+                          },
+                          "then_expr": {
+                            "type": "TupleAccess",
+                            "tuple_expr": {
+                              "type": "Var",
+                              "name": "buffer"
+                            },
+                            "index": 8
+                          },
+                          "else_expr": {
+                            "type": "TupleAccess",
+                            "tuple_expr": {
+                              "type": "Var",
+                              "name": "buffer"
+                            },
+                            "index": 9
+                          }
+                        },
+                        "body": {
+                          "type": "Let",
+                          "name": "newCurrentDay",
+                          "expr": {
+                            "type": "TupleAccess",
+                            "tuple_expr": {
+                              "type": "Var",
+                              "name": "input"
+                            },
+                            "index": 3
+                          },
+                          "body": {
+                            "type": "Let",
+                            "name": "newPreviousHour",
+                            "expr": {
+                              "type": "Ite",
+                              "cond": {
+                                "type": "Var",
+                                "name": "isFirstUpdate"
+                              },
+                              "then_expr": {
+                                "type": "TupleAccess",
+                                "tuple_expr": {
+                                  "type": "Var",
+                                  "name": "buffer"
+                                },
+                                "index": 10
+                              },
+                              "else_expr": {
+                                "type": "TupleAccess",
+                                "tuple_expr": {
+                                  "type": "Var",
+                                  "name": "buffer"
+                                },
+                                "index": 11
+                              }
+                            },
+                            "body": {
+                              "type": "Let",
+                              "name": "newCurrentHour",
+                              "expr": {
+                                "type": "TupleAccess",
+                                "tuple_expr": {
+                                  "type": "Var",
+                                  "name": "input"
+                                },
+                                "index": 5
+                              },
+                              "body": {
+                                "type": "Let",
+                                "name": "hasTimeChanged",
+                                "expr": {
+                                  "type": "BinOp",
+                                  "op": "||",
+                                  "left": {
+                                    "type": "BinOp",
+                                    "op": "||",
+                                    "left": {
+                                      "type": "BinOp",
+                                      "op": "||",
+                                      "left": {
+                                        "type": "BinOp",
+                                        "op": "||",
+                                        "left": {
+                                          "type": "UnaryOp",
+                                          "op": "not",
+                                          "expr": {
+                                            "type": "BinOp",
+                                            "op": "=",
+                                            "left": {
+                                              "type": "Var",
+                                              "name": "newCurrentHour"
+                                            },
+                                            "right": {
+                                              "type": "Var",
+                                              "name": "newPreviousHour"
+                                            }
+                                          }
+                                        },
+                                        "right": {
+                                          "type": "UnaryOp",
+                                          "op": "not",
+                                          "expr": {
+                                            "type": "BinOp",
+                                            "op": "=",
+                                            "left": {
+                                              "type": "Var",
+                                              "name": "newCurrentDay"
+                                            },
+                                            "right": {
+                                              "type": "Var",
+                                              "name": "newPreviousDay"
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "right": {
+                                        "type": "UnaryOp",
+                                        "op": "not",
+                                        "expr": {
+                                          "type": "BinOp",
+                                          "op": "=",
+                                          "left": {
+                                            "type": "Var",
+                                            "name": "newCurrentWeek"
+                                          },
+                                          "right": {
+                                            "type": "Var",
+                                            "name": "newPreviousWeek"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "right": {
+                                      "type": "UnaryOp",
+                                      "op": "not",
+                                      "expr": {
+                                        "type": "BinOp",
+                                        "op": "=",
+                                        "left": {
+                                          "type": "Var",
+                                          "name": "newCurrentMonth"
+                                        },
+                                        "right": {
+                                          "type": "Var",
+                                          "name": "newPreviousMonth"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "right": {
+                                    "type": "UnaryOp",
+                                    "op": "not",
+                                    "expr": {
+                                      "type": "BinOp",
+                                      "op": "=",
+                                      "left": {
+                                        "type": "Var",
+                                        "name": "newCurrentYear"
+                                      },
+                                      "right": {
+                                        "type": "Var",
+                                        "name": "newPreviousYear"
+                                      }
+                                    }
+                                  }
+                                },
+                                "body": {
+                                  "type": "Tuple",
+                                  "values": [
+                                    {
+                                      "type": "Var",
+                                      "name": "newTotalBookings"
+                                    },
+                                    {
+                                      "type": "Ite",
+                                      "cond": {
+                                        "type": "Var",
+                                        "name": "hasTimeChanged"
+                                      },
+                                      "then_expr": {
+                                        "type": "BinOp",
+                                        "op": "+",
+                                        "left": {
+                                          "type": "TupleAccess",
+                                          "tuple_expr": {
+                                            "type": "Var",
+                                            "name": "buffer"
+                                          },
+                                          "index": 1
+                                        },
+                                        "right": {
+                                          "type": "Num",
+                                          "value": 1
+                                        }
+                                      },
+                                      "else_expr": {
+                                        "type": "TupleAccess",
+                                        "tuple_expr": {
+                                          "type": "Var",
+                                          "name": "buffer"
+                                        },
+                                        "index": 1
+                                      }
+                                    },
+                                    {
+                                      "type": "Var",
+                                      "name": "newPreviousYear"
+                                    },
+                                    {
+                                      "type": "Var",
+                                      "name": "newCurrentYear"
+                                    },
+                                    {
+                                      "type": "Var",
+                                      "name": "newPreviousMonth"
+                                    },
+                                    {
+                                      "type": "Var",
+                                      "name": "newCurrentMonth"
+                                    },
+                                    {
+                                      "type": "Var",
+                                      "name": "newPreviousWeek"
+                                    },
+                                    {
+                                      "type": "Var",
+                                      "name": "newCurrentWeek"
+                                    },
+                                    {
+                                      "type": "Var",
+                                      "name": "newPreviousDay"
+                                    },
+                                    {
+                                      "type": "Var",
+                                      "name": "newCurrentDay"
+                                    },
+                                    {
+                                      "type": "Var",
+                                      "name": "newPreviousHour"
+                                    },
+                                    {
+                                      "type": "Var",
+                                      "name": "newCurrentHour"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Tuple",
+    "values": [
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 1
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      }
+    ]
+  }
+}

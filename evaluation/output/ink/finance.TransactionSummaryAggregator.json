@@ -1,0 +1,1 @@
+{"status":"Success","normalizer":{"Ok":"λ(s1: (bool, str, num, num, num), s2: (bool, str, num, num, num)). ((s1._0 || s2._0), ITE(s2._0, s2._1, s1._1), (s1._2 + s2._2), (s1._3 + s2._3), (s1._4 + s2._4))"},"input_stats":{"has_tuple":true,"has_collection":false,"has_nested_collection":false,"has_conditional":true},"input_ast_size":38,"normalizer_ast_size":30,"elapsed":1.0550197}

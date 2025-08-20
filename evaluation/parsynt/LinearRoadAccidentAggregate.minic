@@ -1,0 +1,46 @@
+program
+
+typedecl row struct {n0:int; n1:int; n2:int; n3:int; n4:int; n5:int; n6:int; n7:int; n8:int; n9:int;};
+typedecl res struct {n0:int; n1:int; n2:int; n3:int; n4:int; n5:int; n6:int; n7:int; n8:int *;};
+
+
+row * input;
+row x;
+
+res output = {n0=0, n1=0, n2=0, n3=0, n4=0, n5=0, n6=0, n7=0, n8=[]};
+int tmp1;
+int tmp2;
+int * tmp8;
+int y;
+
+boolean to_add;
+
+for(x in input) {
+  tmp8 = output.n8;
+  to_add = true;
+
+  for(y in output.n8){
+    if (y == x.n0) {
+      to_add = false;
+    }
+  }
+
+  if(to_add){
+    tmp8 += [x.n0];
+  }
+
+  if(x.n8 > output.n1){
+    tmp1 = x.n8;
+  } else {
+    tmp1 = output.n1;
+  }
+
+  if(x.n9 > output.n2){
+    tmp2 = x.n9;
+  } else {
+    tmp2 = output.n2;
+  }
+  
+  output = {n0=output.n0+1, n1=tmp1, n2=tmp2, n3=x.n2, n4=x.n3, n5=x.n4, n6=x.n5, n7=x.n8, n8=tmp8};
+}
+return output;

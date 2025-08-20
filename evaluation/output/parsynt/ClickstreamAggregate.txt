@@ -1,0 +1,21 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/ClickstreamAggregate.minic.
+  ERROR   mk_struct (n0, n1, n2, n3)
+  ERROR   Message: struct-mems.
+  ERROR   Type: (Int, Int, Int, Int).
+Fatal error: exception Failure("Error typing struct on creation")
+Raised at Stdlib.failwith in file "stdlib.ml", line 29, characters 17-33
+Called from Solve__EquationSystemsSketches.pp_join in file "src/solve/EquationSystemsSketches.ml", line 74, characters 4-139
+Called from Solve__EquationSystemsSketches.compile_sketch in file "src/solve/EquationSystemsSketches.ml", line 179, characters 2-31
+Called from Base__List0.iter in file "src/list0.ml", line 66, characters 4-7
+Called from Solve__Rosette.solve_sketches.solve_rec in file "src/solve/Rosette.ml", line 383, characters 6-40
+Called from Recursion__EquationSystems.solve_step in file "src/recursion/EquationSystems.ml", line 237, characters 4-183
+Called from Recursion__EquationSystems.solve_by_var.f in file "src/recursion/EquationSystems.ml", line 293, characters 14-42
+Called from Base__List0.fold in file "src/list0.ml", line 43, characters 27-37
+Called from Recursion__EquationSystems.solve_by_var in file "src/recursion/EquationSystems.ml", line 313, characters 25-62
+Called from Utils.timed in file "src/utils/Utils.ml", line 296, characters 10-13
+Called from Recursion__EquationSystems.attempt_lift_and_solve in file "src/recursion/EquationSystems.ml", line 371, characters 8-65
+Called from Recursion__EquationSystems.solve in file "src/recursion/EquationSystems.ml", line 385, characters 8-56
+Called from Dune__exe__Parsynt.to_dnc in file "bin/Parsynt.ml", line 102, characters 19-60
+Called from Base__List.map in file "src/list.ml", line 433, characters 15-18
+Called from Dune__exe__Parsynt.main in file "bin/Parsynt.ml", line 134, characters 12-42
+Called from Dune__exe__Parsynt in file "bin/Parsynt.ml", line 138, characters 0-7

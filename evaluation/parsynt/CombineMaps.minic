@@ -1,0 +1,16 @@
+
+program
+
+typedecl kv struct {k:int; v:int;};
+
+kv ** input;
+kv * x;
+
+
+kv * output = [];
+
+for (x in input){
+  output = output + x;
+}
+return output as set;
+

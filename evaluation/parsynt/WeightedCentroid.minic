@@ -1,0 +1,14 @@
+
+program
+
+typedecl row struct {n0:int; n1:int; n2:int;};
+
+row *input;
+row x;
+row output = {n0=0, n1=0, n2=0};
+
+for (x in input){
+  output = {n0=output.n0+x.n0*x.n2, n1=output.n1+x.n1*x.n2, n2=output.n2+x.n2};
+}
+return output;
+

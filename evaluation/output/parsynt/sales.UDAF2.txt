@@ -1,0 +1,23 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/sales.UDAF2.minic.
+ SUCCESS  Equation system: 
+// --- Lifted function ---
+_s1 = { output1 = 0; }for(x in input){
+                        _s1 = {
+                          output1 =
+                          if
+                            (((x.n1 >= 10) && (x.n1 <= 19)) && (x.n0 > 1000))
+                              || ((x.n1 < 10) || (x.n1 > 19) && (x.n0 > 400))
+                            then _s1.output1 + x.n0 else _s1.output1;
+                        }
+                        }
+                        return _s1;
+//--- Splitting predicate:
+¬
+  (((input(0).n1 >= 10) && (input(0).n1 <= 19)) && (input(0).n0 > 1000)) ||
+    ((input(0).n1 < 10) || (input(0).n1 > 19) && (input(0).n0 > 400))
+//--- Join function ---
+join($L1,$R1) = { output1 = $R1.output1 + $L1.output1;
+}
+// Synthesized in (predicate : 2.33 s) + (join : 0.61 s)
+
+ SUCCESS  Finished.

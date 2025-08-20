@@ -1,0 +1,149 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "buffer",
+    "param_type": {
+      "type": "Tuple",
+      "elms": [
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Bool"
+        }
+      ]
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "input",
+      "param_type": {
+        "type": "Num"
+      },
+      "body": {
+        "type": "Ite",
+        "cond": {
+          "type": "BinOp",
+          "op": "||",
+          "left": {
+            "type": "BinOp",
+            "op": "=",
+            "left": {
+              "type": "Var",
+              "name": "input"
+            },
+            "right": {
+              "type": "Num",
+              "value": 0
+            }
+          },
+          "right": {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "buffer"
+            },
+            "index": 2
+          }
+        },
+        "then_expr": {
+          "type": "Tuple",
+          "values": [
+            {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "buffer"
+              },
+              "index": 0
+            },
+            {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "buffer"
+              },
+              "index": 1
+            },
+            {
+              "type": "Bool",
+              "value": true
+            }
+          ]
+        },
+        "else_expr": {
+          "type": "Tuple",
+          "values": [
+            {
+              "type": "BinOp",
+              "op": "+",
+              "left": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "buffer"
+                },
+                "index": 0
+              },
+              "right": {
+                "type": "Num",
+                "value": 1
+              }
+            },
+            {
+              "type": "BinOp",
+              "op": "+",
+              "left": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "buffer"
+                },
+                "index": 1
+              },
+              "right": {
+                "type": "BinOp",
+                "op": "/",
+                "left": {
+                  "type": "Num",
+                  "value": 1
+                },
+                "right": {
+                  "type": "Var",
+                  "name": "input"
+                }
+              }
+            },
+            {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "buffer"
+              },
+              "index": 2
+            }
+          ]
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Tuple",
+    "values": [
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Bool",
+        "value": false
+      }
+    ]
+  }
+}

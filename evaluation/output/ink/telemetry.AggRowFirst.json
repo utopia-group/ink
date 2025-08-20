@@ -1,0 +1,1 @@
+{"status":"Success","normalizer":{"Ok":"λ(s1: map[num, (num, num)], s2: map[num, (num, num)]). s1"},"input_stats":{"has_tuple":true,"has_collection":true,"has_nested_collection":false,"has_conditional":true},"input_ast_size":23,"normalizer_ast_size":3,"elapsed":1.4650732}

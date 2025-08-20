@@ -1,0 +1,29 @@
+
+program
+
+typedecl row struct {n0:int; n1:int;};
+typedecl res struct {n0:int; n1:int; n2:int; n3:int;};
+
+row *input;
+row x;
+res output = {n0=0, n1=0, n2=0, n3=0};
+
+int temp1;
+int temp2;
+
+
+for (x in input){
+  if(output.n1 < x.n1) {
+    temp1 = output.n1;
+  } else {
+    temp1 = x.n1;
+  }
+  if(output.n2 > x.n1) {
+    temp2 = output.n2;
+  } else {
+    temp2 = x.n1;
+  }
+  output = {n0=output.n0+x.n1, n1=temp1, n2=temp2, n3=output.n3+1};
+}
+return output;
+

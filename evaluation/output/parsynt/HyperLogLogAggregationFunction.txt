@@ -1,0 +1,50 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/HyperLogLogAggregationFunction.minic.
+/tmp/nix-shell.p5GlJh/HyperLogLogAggregationFunction_join_f_n23.rkt:12:45: output1: unbound identifier
+  in: output1
+  location...:
+   /tmp/nix-shell.p5GlJh/HyperLogLogAggregationFunction_join_f_n23.rkt:12:45
+  context...:
+   /home/zwang/.local/share/racket/8.14/pkgs/rosette/rosette/base/form/module.rkt:16:0
+/tmp/nix-shell.p5GlJh/HyperLogLogAggregationFunction_join_f_n24.rkt:12:45: output1: unbound identifier
+  in: output1
+  location...:
+   /tmp/nix-shell.p5GlJh/HyperLogLogAggregationFunction_join_f_n24.rkt:12:45
+  context...:
+   /home/zwang/.local/share/racket/8.14/pkgs/rosette/rosette/base/form/module.rkt:16:0
+/tmp/nix-shell.p5GlJh/HyperLogLogAggregationFunction_join_f_n25.rkt:12:45: output1: unbound identifier
+  in: output1
+  location...:
+   /tmp/nix-shell.p5GlJh/HyperLogLogAggregationFunction_join_f_n25.rkt:12:45
+  context...:
+   /home/zwang/.local/share/racket/8.14/pkgs/rosette/rosette/base/form/module.rkt:16:0
+/tmp/nix-shell.p5GlJh/HyperLogLogAggregationFunction_join_f_n22.rkt:12:45: output1: unbound identifier
+  in: output1
+  location...:
+   /tmp/nix-shell.p5GlJh/HyperLogLogAggregationFunction_join_f_n22.rkt:12:45
+  context...:
+   /home/zwang/.local/share/racket/8.14/pkgs/rosette/rosette/base/form/module.rkt:16:0
+/tmp/nix-shell.p5GlJh/HyperLogLogAggregationFunction_join_f_n26.rkt:12:45: output1: unbound identifier
+  in: output1
+  location...:
+   /tmp/nix-shell.p5GlJh/HyperLogLogAggregationFunction_join_f_n26.rkt:12:45
+  context...:
+   /home/zwang/.local/share/racket/8.14/pkgs/rosette/rosette/base/form/module.rkt:16:0
+ SUCCESS  Equation system: 
+// --- Lifted function ---
+_s1 = { n0 = 0; n1 = 0; n2 = []; }for(x in input){
+                                    _s1 = {
+                                      n0 = x.n0;
+                                      n1 = x.n1;
+                                      n2 = output1.n1 ++ [x.n1];
+                                    }
+                                    }
+                                    return _s1;
+//--- Splitting predicate: (empty)
+//--- Join function ---
+join($L,$R) = { n0 = $R.n0;
+                n1 = $R.n1;
+                ?? = (empty);
+}
+// Synthesized in (predicate : 0.02 s) + (join : 3.18 s)
+
+ SUCCESS  Finished.

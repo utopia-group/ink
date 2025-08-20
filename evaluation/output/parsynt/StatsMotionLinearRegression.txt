@@ -1,0 +1,35 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/StatsMotionLinearRegression.minic.
+ SUCCESS  Single pass translation: solution found (1.758 s).
+ SUCCESS  ===== Budget: (0, 2, 2) ====
+ SUCCESS  ===== Budget: (1, 2, 2) ====
+ SUCCESS  Predicate found in 0.39 s.
+ SUCCESS  Divide function found in 1.75 s.
+ SUCCESS  Join found in 3.96 s.
+ SUCCESS  Solution in StatsMotionLinearRegression_1-2-2_0_soln.txt
+ SUCCESS  ===== Budget: (2, 2, 2) ====
+ SUCCESS  Predicate found in 0.27 s.
+/tmp/nix-shell.p5GlJh/StatsMotionLinearRegression_join_sketch_2_2_2_16.rkt:39:77: x: unbound identifier
+  in: x
+  location...:
+   /tmp/nix-shell.p5GlJh/StatsMotionLinearRegression_join_sketch_2_2_2_16.rkt:39:77
+  context...:
+   /home/zwang/.local/share/racket/8.14/pkgs/rosette/rosette/base/form/module.rkt:16:0
+ SUCCESS  ===== Budget: (0, 2, 3) ====
+ SUCCESS  ===== Budget: (0, 3, 3) ====
+ SUCCESS  ===== Budget: (1, 2, 3) ====
+Fatal error: exception Failure("Type error when mk_foldl: concat, ([Int],\n                                   [row {n0 : Int; n1 : Int; n2 : Int}])")
+Raised at Stdlib.failwith in file "stdlib.ml", line 29, characters 17-33
+Called from Lang__TermUtils.mk_fold_xyz in file "src/lang/TermUtils.ml", line 135, characters 16-100
+Called from Recursion__Discover.pred_from_unfoldings.build_pred_e in file "src/recursion/Discover.ml", line 185, characters 32-98
+Called from Base__Option.map in file "src/option.ml", line 233, characters 19-24
+Called from Recursion__Discover.pred_from_unfoldings in file "src/recursion/Discover.ml", line 191, characters 15-57
+Called from Recursion__Discover.deduce_predicate in file "src/recursion/Discover.ml", line 207, characters 10-83
+Called from Recursion__Discover.discover_predicate_and_sketches in file "src/recursion/Discover.ml", line 222, characters 4-55
+Called from Recursion__SelfFoldSinglePass.budget_loop in file "src/recursion/SelfFoldSinglePass.ml", line 690, characters 8-51
+Called from Recursion__SelfFoldSinglePass.budget_loop in file "src/recursion/SelfFoldSinglePass.ml", line 700, characters 17-31
+Called from Recursion__SelfFoldSinglePass.budget_loop in file "src/recursion/SelfFoldSinglePass.ml", line 695, characters 18-32
+Called from Dune__exe__Parsynt.to_dnc in file "bin/Parsynt.ml", line 80, characters 14-52
+Re-raised at Dune__exe__Parsynt.to_dnc in file "bin/Parsynt.ml", line 100, characters 13-20
+Called from Base__List.map in file "src/list.ml", line 433, characters 15-18
+Called from Dune__exe__Parsynt.main in file "bin/Parsynt.ml", line 134, characters 12-42
+Called from Dune__exe__Parsynt in file "bin/Parsynt.ml", line 138, characters 0-7

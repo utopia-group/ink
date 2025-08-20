@@ -1,0 +1,38 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/finance.regslope.minic.
+ SUCCESS  Equation system: 
+// --- Lifted function ---
+_s1 = { n0 = 0; n1 = 0; n2 = 0; n3 = 0; n4 = 0; }for(x in input){
+                                                   _s1 = {
+                                                     n0 =
+                                                     _s1.n0 +
+                                                       (((x.n0 - 2000) * 12) +
+                                                        1);
+                                                     n1 = _s1.n1 + x.n1;
+                                                     n2 =
+                                                     _s1.n2 +
+                                                       ((((x.n0 - 2000) * 12) +
+                                                         1)
+                                                        * x.n1);
+                                                     n3 =
+                                                     _s1.n3 +
+                                                       ((((x.n0 - 2000) * 12) +
+                                                         1)
+                                                        *
+                                                        (((x.n0 - 2000) * 12) +
+                                                         1));
+                                                     n4 = _s1.n4 + 1;
+                                                   }
+                                                   }
+                                                   return _s1;
+//--- Splitting predicate: (empty)
+//--- Join function ---
+join($L,$R) = {
+  n0 = $L.n0 + $R.n0;
+  n1 = $L.n1 + $R.n1;
+  n2 = $L.n2 + $R.n2;
+  n3 = $L.n3 + $R.n3;
+  n4 = $L.n4 + $R.n4;
+}
+// Synthesized in (predicate : 0.03 s) + (join : 0.00 s)
+
+ SUCCESS  Finished.

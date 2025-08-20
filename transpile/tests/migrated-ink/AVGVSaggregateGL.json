@@ -1,0 +1,291 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "acc",
+    "param_type": {
+      "type": "Tuple",
+      "elms": [
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        }
+      ]
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "tuple",
+      "param_type": {
+        "type": "Tuple",
+        "elms": [
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          }
+        ]
+      },
+      "body": {
+        "type": "Let",
+        "name": "newTimestamp",
+        "expr": {
+          "type": "Ite",
+          "cond": {
+            "type": "BinOp",
+            "op": ">",
+            "left": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "acc"
+              },
+              "index": 0
+            },
+            "right": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "tuple"
+              },
+              "index": 3
+            }
+          },
+          "then_expr": {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "acc"
+            },
+            "index": 0
+          },
+          "else_expr": {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "tuple"
+            },
+            "index": 3
+          }
+        },
+        "body": {
+          "type": "Let",
+          "name": "newStimulus",
+          "expr": {
+            "type": "Ite",
+            "cond": {
+              "type": "BinOp",
+              "op": ">",
+              "left": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "acc"
+                },
+                "index": 1
+              },
+              "right": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "tuple"
+                },
+                "index": 4
+              }
+            },
+            "then_expr": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "acc"
+              },
+              "index": 1
+            },
+            "else_expr": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "tuple"
+              },
+              "index": 4
+            }
+          },
+          "body": {
+            "type": "Let",
+            "name": "newSpeed",
+            "expr": {
+              "type": "BinOp",
+              "op": "+",
+              "left": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "acc"
+                },
+                "index": 3
+              },
+              "right": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "tuple"
+                },
+                "index": 5
+              }
+            },
+            "body": {
+              "type": "Let",
+              "name": "newCount",
+              "expr": {
+                "type": "BinOp",
+                "op": "+",
+                "left": {
+                  "type": "TupleAccess",
+                  "tuple_expr": {
+                    "type": "Var",
+                    "name": "acc"
+                  },
+                  "index": 2
+                },
+                "right": {
+                  "type": "Num",
+                  "value": 1
+                }
+              },
+              "body": {
+                "type": "Let",
+                "name": "newSeg",
+                "expr": {
+                  "type": "TupleAccess",
+                  "tuple_expr": {
+                    "type": "Var",
+                    "name": "tuple"
+                  },
+                  "index": 0
+                },
+                "body": {
+                  "type": "Let",
+                  "name": "newDir",
+                  "expr": {
+                    "type": "TupleAccess",
+                    "tuple_expr": {
+                      "type": "Var",
+                      "name": "tuple"
+                    },
+                    "index": 1
+                  },
+                  "body": {
+                    "type": "Let",
+                    "name": "newVid",
+                    "expr": {
+                      "type": "TupleAccess",
+                      "tuple_expr": {
+                        "type": "Var",
+                        "name": "tuple"
+                      },
+                      "index": 2
+                    },
+                    "body": {
+                      "type": "Tuple",
+                      "values": [
+                        {
+                          "type": "Var",
+                          "name": "newTimestamp"
+                        },
+                        {
+                          "type": "Var",
+                          "name": "newStimulus"
+                        },
+                        {
+                          "type": "Var",
+                          "name": "newCount"
+                        },
+                        {
+                          "type": "Var",
+                          "name": "newSpeed"
+                        },
+                        {
+                          "type": "Var",
+                          "name": "newSeg"
+                        },
+                        {
+                          "type": "Var",
+                          "name": "newDir"
+                        },
+                        {
+                          "type": "Var",
+                          "name": "newVid"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Tuple",
+    "values": [
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      }
+    ]
+  }
+}

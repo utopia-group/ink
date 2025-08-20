@@ -1,0 +1,1 @@
+{"status":"Success","normalizer":{"Ok":"λ(val_l: (num, num), val_r: (num, num)). ((val_l._0 + val_r._0), (val_r._1 + val_l._1))"},"input_stats":{"has_tuple":true,"has_collection":false,"has_nested_collection":false,"has_conditional":true},"input_ast_size":22,"normalizer_ast_size":13,"elapsed":182.62662}

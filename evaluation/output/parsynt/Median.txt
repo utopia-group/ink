@@ -1,0 +1,16 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/Median.minic.
+ SUCCESS  Equation system: 
+// --- Lifted function ---
+_s1 = { output1 = []; }for(x in input){
+                         _s1 = {
+                           output1 = _s1.output1 ++ [x];
+                         }
+                         }
+                         return _s1;
+//--- Splitting predicate: (empty)
+//--- Join function ---
+join($L,$R) = { ?? = (empty);
+}
+// Synthesized in (predicate : 0.01 s) + (join : 3.20 s)
+
+ SUCCESS  Finished.

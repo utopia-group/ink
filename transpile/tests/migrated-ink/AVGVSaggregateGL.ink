@@ -1,0 +1,2 @@
+(acc: (num, num, num, num, num, num, num)) -> (tuple: (num, num, num, num, num, num)) -> let newTimestamp = ITE(acc._0 > tuple._3, acc._0, tuple._3) in let newStimulus = ITE(acc._1 > tuple._4, acc._1, tuple._4) in let newSpeed = acc._3 + tuple._5 in let newCount = acc._2 + 1 in let newSeg = tuple._0 in let newDir = tuple._1 in let newVid = tuple._2 in (newTimestamp, newStimulus, newCount, newSpeed, newSeg, newDir, newVid)
+(0, 0, 0, 0, 0, 0, 0)

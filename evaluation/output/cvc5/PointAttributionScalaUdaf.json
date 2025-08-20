@@ -1,0 +1,1 @@
+{"status":"Success","normalizer":{"Ok":"λ(val_l: num, val_r: num). (val_l + val_r)"},"input_stats":{"has_tuple":false,"has_collection":false,"has_nested_collection":false,"has_conditional":true},"input_ast_size":15,"normalizer_ast_size":5,"elapsed":0.4377134}

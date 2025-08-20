@@ -1,0 +1,17 @@
+
+program
+
+typedecl row struct {n0:int; n1:int;};
+
+int *input;
+int x;
+int output = 0;
+
+
+for (x in input){
+  if(x > 500) {
+    output = output + x;
+  }
+}
+return output;
+

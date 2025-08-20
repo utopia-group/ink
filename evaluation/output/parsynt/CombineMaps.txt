@@ -1,0 +1,47 @@
+Term: x[x].
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/CombineMaps.minic.
+/tmp/nix-shell.p5GlJh/CombineMaps_join_f_output14.rkt:10:30: x: unbound identifier
+  in: x
+  location...:
+   /tmp/nix-shell.p5GlJh/CombineMaps_join_f_output14.rkt:10:30
+  context...:
+   /home/zwang/.local/share/racket/8.14/pkgs/rosette/rosette/base/form/module.rkt:16:0
+/tmp/nix-shell.p5GlJh/CombineMaps_join_f_output15.rkt:10:30: x: unbound identifier
+  in: x
+  location...:
+   /tmp/nix-shell.p5GlJh/CombineMaps_join_f_output15.rkt:10:30
+  context...:
+   /home/zwang/.local/share/racket/8.14/pkgs/rosette/rosette/base/form/module.rkt:16:0
+/tmp/nix-shell.p5GlJh/CombineMaps_join_f_output12.rkt:10:30: x: unbound identifier
+  in: x
+  location...:
+   /tmp/nix-shell.p5GlJh/CombineMaps_join_f_output12.rkt:10:30
+  context...:
+   /home/zwang/.local/share/racket/8.14/pkgs/rosette/rosette/base/form/module.rkt:16:0
+/tmp/nix-shell.p5GlJh/CombineMaps_join_f_output13.rkt:10:30: x: unbound identifier
+  in: x
+  location...:
+   /tmp/nix-shell.p5GlJh/CombineMaps_join_f_output13.rkt:10:30
+  context...:
+   /home/zwang/.local/share/racket/8.14/pkgs/rosette/rosette/base/form/module.rkt:16:0
+/tmp/nix-shell.p5GlJh/CombineMaps_join_f_output16.rkt:10:30: x: unbound identifier
+  in: x
+  location...:
+   /tmp/nix-shell.p5GlJh/CombineMaps_join_f_output16.rkt:10:30
+  context...:
+   /home/zwang/.local/share/racket/8.14/pkgs/rosette/rosette/base/form/module.rkt:16:0
+ SUCCESS  Equation system: 
+// --- Lifted function ---
+_s1 = { output1 = []; }for(_a in x){
+                         _s1 = {
+                           output1 = _s1.output1 ++ x;
+                         }
+                         }
+                         return _s1;
+//--- Splitting predicate: (empty)
+//--- Join function ---
+join($L,$R) = { ?? = (empty);
+}
+// Synthesized in (predicate : 0.02 s) + (join : 2.45 s)
+
+ SUCCESS  Finished.

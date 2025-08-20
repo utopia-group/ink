@@ -1,0 +1,44 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "s",
+    "param_type": {
+      "type": "Set",
+      "elm": {
+        "type": "Num"
+      }
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "x",
+      "param_type": {
+        "type": "Set",
+        "elm": {
+          "type": "Num"
+        }
+      },
+      "body": {
+        "type": "App",
+        "func": {
+          "type": "App",
+          "func": {
+            "type": "Var",
+            "name": "union"
+          },
+          "arg": {
+            "type": "Var",
+            "name": "s"
+          }
+        },
+        "arg": {
+          "type": "Var",
+          "name": "x"
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Var",
+    "name": "empty_set"
+  }
+}

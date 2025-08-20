@@ -1,0 +1,23 @@
+program
+
+typedecl row struct {n0:int; n1:int; n2:int; n3:int; n4:int; n5:int; n6:int; n7:int; n8:int;};
+typedecl res struct {n0:int; n1:int; n2:int; n3:int; n4:int; n5:int; n6:int; n7:int; n8:int; n9:int; n10:int; n11:int;};
+
+row *input;
+row x;
+res output = {n0=0, n1=0, n2=0, n3=0, n4=0, n5=0, n6=0, n7=0, n8=0, n9=0, n10=0, n11=0};
+
+boolean isFirstUpdate;
+
+for (x in input){
+  isFirstUpdate = (output.n7 == 0);
+  
+  if(isFirstUpdate) {
+    output = {n0=x.n0, n1=x.n1, n2=x.n2, n3=x.n3, n4=x.n4, n5=x.n5, n6=x.n6, n7=1, n8=x.n7, n9=x.n8, n10=1, n11=1};
+  } else {
+    output = {n0=output.n0+x.n0, n1=output.n1+x.n1, n2=output.n2+x.n2, n3=output.n3+x.n3, 
+             n4=output.n4+x.n4, n5=output.n5+x.n5, n6=output.n6+x.n6, n7=output.n7, 
+             n8=output.n8+x.n7, n9=output.n9+x.n8, n10=output.n10+1, n11=output.n11+1};
+  }
+}
+return output;

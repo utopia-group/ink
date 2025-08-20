@@ -1,0 +1,30 @@
+program
+
+typedecl row struct {n0:int; n1:int;};
+
+row * output = [];
+row * tmp;
+row y;
+
+row * input;
+row x;
+
+boolean to_add;
+
+for(x in input) {
+  tmp = [];
+  to_add = true;
+  for(y in output){
+      if(y.n0 == x.n0) {
+          tmp += [{n0=y.n0, n1=y.n1+x.n1}];
+          to_add = false;
+      } else {
+          tmp += [{n0=y.n0, n1=y.n1}];
+      }
+  }
+  if(to_add){
+    tmp += [{n0=x.n0, n1=x.n1}];
+  }
+  output = tmp;
+}
+return output as set;

@@ -1,0 +1,37 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/CountAggregateFunction.minic.
+/tmp/nix-shell.p5GlJh/CountAggregateFunction_join_f_n02.rkt:25:32: x: unbound identifier
+  in: x
+  location...:
+   /tmp/nix-shell.p5GlJh/CountAggregateFunction_join_f_n02.rkt:25:32
+  context...:
+   /home/zwang/.local/share/racket/8.14/pkgs/rosette/rosette/base/form/module.rkt:16:0
+/tmp/nix-shell.p5GlJh/CountAggregateFunction_join_f_n19.rkt:25:32: x: unbound identifier
+  in: x
+  location...:
+   /tmp/nix-shell.p5GlJh/CountAggregateFunction_join_f_n19.rkt:25:32
+  context...:
+   /home/zwang/.local/share/racket/8.14/pkgs/rosette/rosette/base/form/module.rkt:16:0
+ SUCCESS  Equation system: 
+// --- Lifted function ---
+_s1 = { n0 = 0; n1 = 0; n2 = 0; }for(x in input){
+                                   _s1 = {
+                                     n0 =
+                                     if _s1.n0 > x.n0 then _s1.n0 else x.n0;
+                                     n1 =
+                                     if _s1.n1 > x.n1 then _s1.n1 else x.n1;
+                                     n2 = _s1.n2 + 1;
+                                   }
+                                   }
+                                   return _s1;
+//--- Splitting predicate:
+((if 0 > input(-1).n0 then 0 else input(-1).n0) > input(0).n0) &&
+  ((if 0 > input(-1).n1 then 0 else input(-1).n1) > input(0).n1)
+//--- Join function ---
+join($L1,$R1) = {
+  n0 = max ((max ((max (0, $R1.n0)), $L1.n0)), 0);
+  n1 = max ((max ((max (0, $R1.n1)), $L1.n1)), 0);
+  n2 = $L1.n2 + $R1.n2;
+}
+// Synthesized in (predicate : 0.40 s) + (join : 5.01 s)
+
+ SUCCESS  Finished.

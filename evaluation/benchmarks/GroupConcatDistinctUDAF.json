@@ -1,0 +1,41 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "s",
+    "param_type": {
+      "type": "Set",
+      "elm": {
+        "type": "Num"
+      }
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "x",
+      "param_type": {
+        "type": "Num"
+      },
+      "body": {
+        "type": "App",
+        "func": {
+          "type": "App",
+          "func": {
+            "type": "Var",
+            "name": "set_add"
+          },
+          "arg": {
+            "type": "Var",
+            "name": "x"
+          }
+        },
+        "arg": {
+          "type": "Var",
+          "name": "s"
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Var",
+    "name": "empty_set"
+  }
+}

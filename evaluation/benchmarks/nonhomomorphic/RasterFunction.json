@@ -1,0 +1,207 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "s",
+    "param_type": {
+      "type": "List",
+      "elm": {
+        "type": "Tuple",
+        "elms": [
+          {
+            "type": "List",
+            "elm": {
+              "type": "Num"
+            }
+          },
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Num"
+          }
+        ]
+      }
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "x",
+      "param_type": {
+        "type": "List",
+        "elm": {
+          "type": "Tuple",
+          "elms": [
+            {
+              "type": "List",
+              "elm": {
+                "type": "Num"
+              }
+            },
+            {
+              "type": "Num"
+            },
+            {
+              "type": "Num"
+            }
+          ]
+        }
+      },
+      "body": {
+        "type": "App",
+        "func": {
+          "type": "App",
+          "func": {
+            "type": "Var",
+            "name": "map"
+          },
+          "arg": {
+            "type": "Lambda",
+            "param": "zipped_row",
+            "param_type": {
+              "type": "Tuple",
+              "elms": [
+                {
+                  "type": "Tuple",
+                  "elms": [
+                    {
+                      "type": "List",
+                      "elm": {
+                        "type": "Num"
+                      }
+                    },
+                    {
+                      "type": "Num"
+                    },
+                    {
+                      "type": "Num"
+                    }
+                  ]
+                },
+                {
+                  "type": "Tuple",
+                  "elms": [
+                    {
+                      "type": "List",
+                      "elm": {
+                        "type": "Num"
+                      }
+                    },
+                    {
+                      "type": "Num"
+                    },
+                    {
+                      "type": "Num"
+                    }
+                  ]
+                }
+              ]
+            },
+            "body": {
+              "type": "Tuple",
+              "values": [
+                {
+                  "type": "BinOp",
+                  "op": "++",
+                  "left": {
+                    "type": "TupleAccess",
+                    "tuple_expr": {
+                      "type": "TupleAccess",
+                      "tuple_expr": {
+                        "type": "Var",
+                        "name": "zipped_row"
+                      },
+                      "index": 0
+                    },
+                    "index": 0
+                  },
+                  "right": {
+                    "type": "TupleAccess",
+                    "tuple_expr": {
+                      "type": "TupleAccess",
+                      "tuple_expr": {
+                        "type": "Var",
+                        "name": "zipped_row"
+                      },
+                      "index": 1
+                    },
+                    "index": 0
+                  }
+                },
+                {
+                  "type": "TupleAccess",
+                  "tuple_expr": {
+                    "type": "TupleAccess",
+                    "tuple_expr": {
+                      "type": "Var",
+                      "name": "zipped_row"
+                    },
+                    "index": 1
+                  },
+                  "index": 1
+                },
+                {
+                  "type": "TupleAccess",
+                  "tuple_expr": {
+                    "type": "TupleAccess",
+                    "tuple_expr": {
+                      "type": "Var",
+                      "name": "zipped_row"
+                    },
+                    "index": 1
+                  },
+                  "index": 2
+                }
+              ]
+            }
+          }
+        },
+        "arg": {
+          "type": "App",
+          "func": {
+            "type": "App",
+            "func": {
+              "type": "Var",
+              "name": "zip"
+            },
+            "arg": {
+              "type": "Var",
+              "name": "s"
+            }
+          },
+          "arg": {
+            "type": "Var",
+            "name": "x"
+          }
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Cons",
+    "head": {
+      "type": "Tuple",
+      "values": [
+        {
+          "type": "Cons",
+          "head": {
+            "type": "Num",
+            "value": 0
+          },
+          "tail": {
+            "type": "Nil"
+          }
+        },
+        {
+          "type": "Num",
+          "value": 0
+        },
+        {
+          "type": "Num",
+          "value": 0
+        }
+      ]
+    },
+    "tail": {
+      "type": "Nil"
+    }
+  }
+}

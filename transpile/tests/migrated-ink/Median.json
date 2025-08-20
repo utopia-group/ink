@@ -1,0 +1,33 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "buffer",
+    "param_type": {
+      "type": "List",
+      "elm": {
+        "type": "Num"
+      }
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "input",
+      "param_type": {
+        "type": "Num"
+      },
+      "body": {
+        "type": "Cons",
+        "head": {
+          "type": "Var",
+          "name": "input"
+        },
+        "tail": {
+          "type": "Var",
+          "name": "buffer"
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Nil"
+  }
+}

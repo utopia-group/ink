@@ -1,0 +1,15 @@
+
+program
+
+typedecl row struct {n0:int; n1:int;};
+typedecl res struct {n0:int; n1:int;};
+
+row *input;
+row x;
+res *output = [];
+
+for (x in input){
+  output += [x];
+}
+return output as set;
+

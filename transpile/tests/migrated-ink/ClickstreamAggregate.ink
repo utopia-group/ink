@@ -1,0 +1,2 @@
+(acc: (num, num, num, set[str])) -> (value: (num, str, str)) -> let newEventCount = ITE(not (value._1 = "N/A"), acc._1 + 1, acc._1) in let newDepartments = ITE(not (value._1 = "N/A"), set_add(value._1, acc._3), acc._3) in let newUserId = ITE(acc._0 = 0, value._0, acc._0) in let newEventCountWithOrderCheckout = ITE(value._2 = "order_checkout", newEventCount, acc._2) in (newUserId, newEventCount, newEventCountWithOrderCheckout, newDepartments)
+(0, 0, 0, empty_set)

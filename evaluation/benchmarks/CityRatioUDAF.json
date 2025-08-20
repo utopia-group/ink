@@ -1,0 +1,64 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "buffer",
+    "param_type": {
+      "type": "Map",
+      "key": {
+        "type": "Str"
+      },
+      "value": {
+        "type": "Num"
+      }
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "input",
+      "param_type": {
+        "type": "Str"
+      },
+      "body": {
+        "type": "Let",
+        "name": "newCount",
+        "expr": {
+          "type": "BinOp",
+          "op": "+",
+          "left": {
+            "type": "MapAccess",
+            "map": {
+              "type": "Var",
+              "name": "buffer"
+            },
+            "key": {
+              "type": "Var",
+              "name": "input"
+            }
+          },
+          "right": {
+            "type": "Num",
+            "value": 1
+          }
+        },
+        "body": {
+          "type": "MapAssign",
+          "map": {
+            "type": "Var",
+            "name": "buffer"
+          },
+          "key": {
+            "type": "Var",
+            "name": "input"
+          },
+          "value": {
+            "type": "Var",
+            "name": "newCount"
+          }
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Var",
+    "name": "empty_map"
+  }
+}

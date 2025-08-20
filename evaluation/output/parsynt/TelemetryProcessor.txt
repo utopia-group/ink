@@ -1,0 +1,16 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/TelemetryProcessor.minic.
+ SUCCESS  Equation system: 
+// --- Lifted function ---
+_s1 = { ; }for(x in input){
+             _s1 = {
+               ;
+             }
+             }
+             return _s1;
+//--- Splitting predicate: (empty)
+//--- Join function ---
+join($L,$R) = { ;
+}
+// Synthesized in (predicate : 0.02 s) + (join : 0.00 s)
+
+ SUCCESS  Finished.

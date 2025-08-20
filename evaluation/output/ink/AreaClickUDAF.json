@@ -1,0 +1,1 @@
+{"status":"Success","normalizer":{"Ok":"λ(xs: map[str, num], ys: map[str, num]). (map(λ(s1: (bool, num), s2: (bool, num)). ((s1._0 || s2._0), (s1._1 + s2._1)), outer_join(xs._0, ys._0)), (s1._1 + s2._1))"},"input_stats":{"has_tuple":true,"has_collection":true,"has_nested_collection":false,"has_conditional":false},"input_ast_size":18,"normalizer_ast_size":31,"elapsed":0.510951}

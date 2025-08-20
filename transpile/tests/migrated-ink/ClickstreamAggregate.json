@@ -1,0 +1,272 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "acc",
+    "param_type": {
+      "type": "Tuple",
+      "elms": [
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Num"
+        },
+        {
+          "type": "Set",
+          "elm": {
+            "type": "Str"
+          }
+        }
+      ]
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "value",
+      "param_type": {
+        "type": "Tuple",
+        "elms": [
+          {
+            "type": "Num"
+          },
+          {
+            "type": "Str"
+          },
+          {
+            "type": "Str"
+          }
+        ]
+      },
+      "body": {
+        "type": "Let",
+        "name": "newEventCount",
+        "expr": {
+          "type": "Ite",
+          "cond": {
+            "type": "UnaryOp",
+            "op": "not",
+            "expr": {
+              "type": "BinOp",
+              "op": "=",
+              "left": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "value"
+                },
+                "index": 1
+              },
+              "right": {
+                "type": "Str",
+                "value": "N/A"
+              }
+            }
+          },
+          "then_expr": {
+            "type": "BinOp",
+            "op": "+",
+            "left": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "acc"
+              },
+              "index": 1
+            },
+            "right": {
+              "type": "Num",
+              "value": 1
+            }
+          },
+          "else_expr": {
+            "type": "TupleAccess",
+            "tuple_expr": {
+              "type": "Var",
+              "name": "acc"
+            },
+            "index": 1
+          }
+        },
+        "body": {
+          "type": "Let",
+          "name": "newDepartments",
+          "expr": {
+            "type": "Ite",
+            "cond": {
+              "type": "UnaryOp",
+              "op": "not",
+              "expr": {
+                "type": "BinOp",
+                "op": "=",
+                "left": {
+                  "type": "TupleAccess",
+                  "tuple_expr": {
+                    "type": "Var",
+                    "name": "value"
+                  },
+                  "index": 1
+                },
+                "right": {
+                  "type": "Str",
+                  "value": "N/A"
+                }
+              }
+            },
+            "then_expr": {
+              "type": "App",
+              "func": {
+                "type": "App",
+                "func": {
+                  "type": "Var",
+                  "name": "set_add"
+                },
+                "arg": {
+                  "type": "TupleAccess",
+                  "tuple_expr": {
+                    "type": "Var",
+                    "name": "value"
+                  },
+                  "index": 1
+                }
+              },
+              "arg": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "acc"
+                },
+                "index": 3
+              }
+            },
+            "else_expr": {
+              "type": "TupleAccess",
+              "tuple_expr": {
+                "type": "Var",
+                "name": "acc"
+              },
+              "index": 3
+            }
+          },
+          "body": {
+            "type": "Let",
+            "name": "newUserId",
+            "expr": {
+              "type": "Ite",
+              "cond": {
+                "type": "BinOp",
+                "op": "=",
+                "left": {
+                  "type": "TupleAccess",
+                  "tuple_expr": {
+                    "type": "Var",
+                    "name": "acc"
+                  },
+                  "index": 0
+                },
+                "right": {
+                  "type": "Num",
+                  "value": 0
+                }
+              },
+              "then_expr": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "value"
+                },
+                "index": 0
+              },
+              "else_expr": {
+                "type": "TupleAccess",
+                "tuple_expr": {
+                  "type": "Var",
+                  "name": "acc"
+                },
+                "index": 0
+              }
+            },
+            "body": {
+              "type": "Let",
+              "name": "newEventCountWithOrderCheckout",
+              "expr": {
+                "type": "Ite",
+                "cond": {
+                  "type": "BinOp",
+                  "op": "=",
+                  "left": {
+                    "type": "TupleAccess",
+                    "tuple_expr": {
+                      "type": "Var",
+                      "name": "value"
+                    },
+                    "index": 2
+                  },
+                  "right": {
+                    "type": "Str",
+                    "value": "order_checkout"
+                  }
+                },
+                "then_expr": {
+                  "type": "Var",
+                  "name": "newEventCount"
+                },
+                "else_expr": {
+                  "type": "TupleAccess",
+                  "tuple_expr": {
+                    "type": "Var",
+                    "name": "acc"
+                  },
+                  "index": 2
+                }
+              },
+              "body": {
+                "type": "Tuple",
+                "values": [
+                  {
+                    "type": "Var",
+                    "name": "newUserId"
+                  },
+                  {
+                    "type": "Var",
+                    "name": "newEventCount"
+                  },
+                  {
+                    "type": "Var",
+                    "name": "newEventCountWithOrderCheckout"
+                  },
+                  {
+                    "type": "Var",
+                    "name": "newDepartments"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Tuple",
+    "values": [
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Num",
+        "value": 0
+      },
+      {
+        "type": "Var",
+        "name": "empty_set"
+      }
+    ]
+  }
+}

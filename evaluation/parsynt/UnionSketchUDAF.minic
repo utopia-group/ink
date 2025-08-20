@@ -1,0 +1,16 @@
+
+program
+
+
+int **input;
+int *x;
+int y;
+int *output = [];
+
+for (x in input){
+  for (y in x){
+    output += [y];
+  }
+}
+return output as set;
+

@@ -1,0 +1,24 @@
+ SUCCESS  Parsed /home/zwang/research/ink/evaluation/parsynt/KeepRowWithMaxAge.minic.
+ SUCCESS  Equation system: 
+// --- Lifted function ---
+_s1 = { output1 = {n0 = 0; n1 = 0; n2 = 0; n3 = 0}; }for(x in input){
+                                                       _s1 = {
+                                                         output1 =
+                                                         if
+                                                           x.n3 >
+                                                             _s1.output1.n3
+                                                           then x else
+                                                           _s1.output1;
+                                                       }
+                                                       }
+                                                       return _s1;
+//--- Splitting predicate:
+input(0).n3 >
+  (if input(-1).n3 > {n0 = 0; n1 = 0; n2 = 0; n3 = 0}.n3 then input(-1) else
+   {n0 = 0; n1 = 0; n2 = 0; n3 = 0}).n3
+//--- Join function ---
+join($L1,$R1) = { ?? = (empty);
+}
+// Synthesized in (predicate : 0.14 s) + (join : 3.37 s)
+
+ SUCCESS  Finished.

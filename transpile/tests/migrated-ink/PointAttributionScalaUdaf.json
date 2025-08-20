@@ -1,0 +1,67 @@
+{
+  "acc": {
+    "type": "Lambda",
+    "param": "buffer",
+    "param_type": {
+      "type": "Num"
+    },
+    "body": {
+      "type": "Lambda",
+      "param": "input",
+      "param_type": {
+        "type": "Num"
+      },
+      "body": {
+        "type": "Let",
+        "name": "MAX_POINT_PER_ORDER",
+        "expr": {
+          "type": "Num",
+          "value": 3
+        },
+        "body": {
+          "type": "Let",
+          "name": "points",
+          "expr": {
+            "type": "Ite",
+            "cond": {
+              "type": "BinOp",
+              "op": "<",
+              "left": {
+                "type": "Var",
+                "name": "input"
+              },
+              "right": {
+                "type": "Var",
+                "name": "MAX_POINT_PER_ORDER"
+              }
+            },
+            "then_expr": {
+              "type": "Var",
+              "name": "input"
+            },
+            "else_expr": {
+              "type": "Var",
+              "name": "MAX_POINT_PER_ORDER"
+            }
+          },
+          "body": {
+            "type": "BinOp",
+            "op": "+",
+            "left": {
+              "type": "Var",
+              "name": "buffer"
+            },
+            "right": {
+              "type": "Var",
+              "name": "points"
+            }
+          }
+        }
+      }
+    }
+  },
+  "init": {
+    "type": "Num",
+    "value": 0
+  }
+}

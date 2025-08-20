@@ -1,0 +1,13 @@
+
+program
+
+int *input;
+int x;
+typedecl res struct {n0:int; n1:int;};
+res output = {n0=0, n1=0};
+
+for (x in input){
+  output = {n0=output.n0 + x, n1=output.n1 + 1};
+}
+return output;
+
